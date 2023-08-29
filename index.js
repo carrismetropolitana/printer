@@ -1,4 +1,4 @@
-const { PRINTER_BASE_URL, PRINTER_TIMEOUT, PRINTER_PAGE_FORMAT } = process.env;
+const { PRINTER_RENDER_BASE_URL, PRINTER_RENDER_TIMEOUT, PRINTER_RENDER_PAGE_FORMAT } = process.env;
 const fastify = require('fastify')({ logger: true, requestTimeout: 20000 });
 const puppeteer = require('puppeteer');
 
@@ -13,10 +13,10 @@ fastify.get('/:url', async (request, reply) => {
     const htmlPage = await BROSWER_INSTANCE.newPage();
 
     // Build the complete URL to be rendered
-    const completeUrl = `${PRINTER_BASE_URL}/${request.params.url}`;
+    const completeUrl = `${PRINTER_RENDER_BASE_URL}/${request.params.url}`;
 
     // Navigate to the URL
-    await htmlPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: PRINTER_TIMEOUT });
+    await htmlPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: PRINTER_RENDER_TIMEOUT });
 
     // Set media-type to reflect CSS used for screens instead of print
     await htmlPage.emulateMediaType('screen');
@@ -24,7 +24,7 @@ fastify.get('/:url', async (request, reply) => {
     // Render the PDF
     const pdfData = await htmlPage.pdf({
       printBackground: true,
-      format: PRINTER_PAGE_FORMAT,
+      format: PRINTER_RENDER_PAGE_FORMAT,
     });
 
     // Close the page
