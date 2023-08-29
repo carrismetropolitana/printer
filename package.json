@@ -1,0 +1,14 @@
+{
+    "name": "@carrismetropolitana/printer",
+    "version": "2023.1.1",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "dotenv": "16.3.1",
+        "fastify": "4.22.0",
+        "puppeteer": "21.1.1"
+    }
+}
