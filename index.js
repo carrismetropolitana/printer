@@ -58,4 +58,7 @@ fastify.listen({ port: 5050, host: '0.0.0.0' }, async (err, address) => {
     //   ignoreHTTPSErrors: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
   });
+  console.log(PRINTER_RENDER_BASE_URL);
+  console.log(PRINTER_RENDER_TIMEOUT);
+  console.log(PRINTER_RENDER_PAGE_FORMAT);
 });
