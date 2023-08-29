@@ -41,7 +41,7 @@ fastify.post('/', async (request, reply) => {
 
     //
   } catch (err) {
-    console.log('🔴 → Request for "%s": Server Error', completeUrl, err);
+    console.log('🔴 → Request for "%s": Server Error', request.body.render_path, err);
     return reply.status(500).send([]);
   }
 
