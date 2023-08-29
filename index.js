@@ -62,7 +62,7 @@ fastify.listen({ port: 5050, host: '0.0.0.0' }, async (err, address) => {
   console.log(`→ Server listening on ${address}`);
 
   // Setup browser instance on init
-  BROSWER_INSTANCE = await puppeteer.launch({ headless: 'new' }); // , args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+  BROSWER_INSTANCE = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
   console.log(`→ Browser instance started`);
 
   console.log(`→ Environment Variables:`);
