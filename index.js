@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 let BROSWER_INSTANCE;
 
 //
-fastify.get('/:url', async (request, reply) => {
+fastify.post('/', async (request, reply) => {
   try {
     //
 
@@ -13,7 +13,7 @@ fastify.get('/:url', async (request, reply) => {
     const htmlPage = await BROSWER_INSTANCE.newPage();
 
     // Build the complete URL to be rendered
-    const completeUrl = `${PRINTER_RENDER_BASE_URL}/${request.params.url}`;
+    const completeUrl = `${PRINTER_RENDER_BASE_URL}/${request.body.render_path}`;
 
     // Navigate to the URL
     await htmlPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: PRINTER_RENDER_TIMEOUT });
