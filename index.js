@@ -34,7 +34,7 @@ fastify.post('/', async (request, reply) => {
     console.log('🟢 → Request for "%s": OK', completeUrl);
 
     // Set header to indicate the response type
-    reply.setHeader('Content-Type', 'application/pdf');
+    reply.header('Content-Type', 'application/pdf');
 
     // Return rendered pdf data to the client
     return reply.send(pdfData);
@@ -52,14 +52,25 @@ fastify.post('/', async (request, reply) => {
 //
 // Start Fastify server
 fastify.listen({ port: 5050, host: '0.0.0.0' }, async (err, address) => {
+  //
+  console.log();
+
+  // Exit if could not start server
   if (err) throw err;
-  console.log(`Server listening on ${address}`);
-  BROSWER_INSTANCE = await puppeteer.launch({
-    //   headless: true,
-    //   ignoreHTTPSErrors: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
-  console.log(PRINTER_RENDER_BASE_URL);
-  console.log(PRINTER_RENDER_TIMEOUT);
-  console.log(PRINTER_RENDER_PAGE_FORMAT);
+
+  // Log server address
+  console.log(`→ Server listening on ${address}`);
+
+  // Setup browser instance on init
+  BROSWER_INSTANCE = await puppeteer.launch({ headless: 'new' }); // , args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+  console.log(`→ Browser instance started`);
+
+  console.log(`→ Environment Variables:`);
+  console.log('  ⤷ PRINTER_RENDER_BASE_URL', PRINTER_RENDER_BASE_URL);
+  console.log('  ⤷ PRINTER_RENDER_TIMEOUT', PRINTER_RENDER_TIMEOUT);
+  console.log('  ⤷ PRINTER_RENDER_PAGE_FORMAT', PRINTER_RENDER_PAGE_FORMAT);
+
+  console.log();
+
+  //
 });
