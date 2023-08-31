@@ -1,4 +1,4 @@
-const { PRINTER_RENDER_BASE_URL, PRINTER_RENDER_TIMEOUT, PRINTER_RENDER_PAGE_FORMAT } = process.env;
+const { PRINTER_RENDER_BASE_URL, PRINTER_RENDER_DELAY, PRINTER_RENDER_TIMEOUT, PRINTER_RENDER_PAGE_FORMAT } = process.env;
 const fastify = require('fastify')({ logger: true, requestTimeout: 20000 });
 const puppeteer = require('puppeteer');
 
@@ -17,6 +17,9 @@ fastify.post('/', async (request, reply) => {
 
     // Navigate to the URL
     await htmlPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: PRINTER_RENDER_TIMEOUT });
+
+    // Wait for a delay
+    await htmlPage.waitForTimeout(PRINTER_RENDER_DELAY || 0);
 
     // Set media-type to reflect CSS used for screens instead of print
     await htmlPage.emulateMediaType('screen');
