@@ -1,4 +1,4 @@
-const { PRINTER_RENDER_BASE_URL, PRINTER_RENDER_DELAY, PRINTER_RENDER_TIMEOUT, PRINTER_RENDER_PAGE_FORMAT } = process.env;
+const { PRINTER_RENDER_BASE_URL, PRINTER_RENDER_TIMEOUT, PRINTER_RENDER_DELAY, PRINTER_RENDER_PAGE_FORMAT } = process.env;
 const fastify = require('fastify')({ logger: true, requestTimeout: 20000 });
 const puppeteer = require('puppeteer');
 
