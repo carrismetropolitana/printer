@@ -11,8 +11,8 @@ jobs:
   # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # #
 
-  printer:
-    name: 'Docker Build - printer'
+  printer-server:
+    name: 'Docker Build - server'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -35,6 +35,99 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: ./
-          file: ./Dockerfile
-          tags: ghcr.io/carrismetropolitana/printer:${{ github.ref_name }}
+          context: ./server
+          file: ./server/Dockerfile
+          tags: ghcr.io/carrismetropolitana/printer-server:${{ github.ref_name }}
+
+  # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # #
+
+  printer-worker:
+    name: 'Docker Build - worker'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: ./worker
+          file: ./worker/Dockerfile
+          tags: ghcr.io/carrismetropolitana/printer-worker:${{ github.ref_name }}
+
+  # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # #
+
+  printer-notifier:
+    name: 'Docker Build - notifier'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: ./notifier
+          file: ./notifier/Dockerfile
+          tags: ghcr.io/carrismetropolitana/printer-notifier:${{ github.ref_name }}
+
+  # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # #
+
+  printer-manager:
+    name: 'Docker Build - manager'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: ./manager
+          file: ./manager/Dockerfile
+          tags: ghcr.io/carrismetropolitana/printer-manager:${{ github.ref_name }}

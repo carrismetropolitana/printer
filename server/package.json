@@ -1,0 +1,13 @@
+{
+    "name": "@carrismetropolitana/printer-server",
+    "version": "2023.1.1",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "fastify": "4.24.3",
+        "mongodb": "6.2.0"
+    }
+}
