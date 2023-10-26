@@ -41,7 +41,7 @@ module.exports = async (request, reply) => {
   });
 
   // Return the created job to the caller
-  if (newRequestedJob) return reply.code(200).send(newRequestedJob);
+  if (newRequestedJob.insertedId) return reply.code(200).send(newRequestedJob);
   else return reply.code(500).send('Could not connect to job queue.');
 
   //

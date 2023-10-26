@@ -1,5 +1,4 @@
-//
-// IMPORTS
+/* * */
 
 const fastify = require('fastify')({ logger: true, requestTimeout: 20000 });
 const QUEUEDB = require('./services/QUEUEDB');
@@ -9,13 +8,14 @@ const QUEUEDB = require('./services/QUEUEDB');
 
 const publishEndpoint = require('./endpoints/publish.endpoint');
 const downloadEndpoint = require('./endpoints/download.endpoint');
+const listEndpoint = require('./endpoints/list.endpoint');
 
 //
 // ENDPOINTS
 
 fastify.post('/publish', publishEndpoint);
-
 fastify.get('/download/:id', downloadEndpoint);
+fastify.get('/list', listEndpoint);
 
 //
 // START FASTIFY SERVER
