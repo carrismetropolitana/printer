@@ -9,6 +9,7 @@ module.exports = async (request, reply) => {
 
   // Search database for requested job
   const foundRequestedJob = await QUEUEDB.Job.findOne({ _id: request.params.id });
+  console.log('request.params.id', request.params.id);
   console.log('foundRequestedJob', foundRequestedJob);
 
   // If no job is found with this id return 404 Not Found
