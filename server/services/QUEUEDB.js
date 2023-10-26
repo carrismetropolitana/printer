@@ -1,6 +1,6 @@
 /* * */
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 /* * */
 
@@ -9,6 +9,10 @@ class QUEUEDB {
     this.client = new MongoClient('mongodb://mongodbuser:mongodbpassword@queuedb?authSource=admin', { minPoolSize: 2, maxPoolSize: 200, serverSelectionTimeoutMS: 5000 });
     this.database = this.client.db('queuedb');
     this.Job = this.database.collection('jobs');
+  }
+
+  toObjectId(string) {
+    return new ObjectId(string);
   }
 
   async connect() {
