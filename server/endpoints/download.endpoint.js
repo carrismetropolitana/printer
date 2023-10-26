@@ -1,5 +1,6 @@
 /* * */
 
+const { ObjectId } = require('mongodb');
 const QUEUEDB = require('../services/QUEUEDB');
 
 /* * */
@@ -8,9 +9,9 @@ module.exports = async (request, reply) => {
   //
 
   // Search database for requested job
-  const foundRequestedJob = await QUEUEDB.Job.findOne({ _id: request.params.id });
-  console.log('request.params.id', request.params.id);
-  console.log('foundRequestedJob', foundRequestedJob);
+  const foundRequestedJob = await QUEUEDB.Job.findOne({ _id: new ObjectId(request.params.id) });
+  console.log('request.params.id', request.params.id); // request.params.id 653ad66a55803a1b21ad9a1d
+  console.log('foundRequestedJob', foundRequestedJob); // foundRequestedJob null
 
   // If no job is found with this id return 404 Not Found
   if (!foundRequestedJob) return reply.code(404).send({});
