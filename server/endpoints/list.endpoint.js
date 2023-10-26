@@ -8,7 +8,9 @@ module.exports = async (request, reply) => {
   //
 
   // If everything checks out, create a new job in the queue
-  const allJobs = await QUEUEDB.Job.find();
+  const allJobs = await QUEUEDB.Job.find({});
+
+  console.log('allJobs', allJobs);
 
   return reply.code(200).send(allJobs);
 
