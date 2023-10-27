@@ -135,12 +135,10 @@ services:
   # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # #
 
-  # manager:
-  #   image: ghcr.io/carrismetropolitana/printer-manager:production
-  #   restart: unless-stopped
-  #   logging:
-  #     options:
-  #       max-size: '1m'
-  #       max-file: '1'
-  #   env_file:
-  #     - ./.env
+  manager:
+    image: ghcr.io/carrismetropolitana/printer-manager:production
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: '1m'
+        max-file: '1'

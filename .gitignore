@@ -127,3 +127,9 @@ dist
 .pnp.*
 package-lock.json
 .DS_Store
+
+
+# local env files
+.env
+.env.development
+.env.production

@@ -33,7 +33,7 @@ const RUN_INTERVAL = 30000; // seconds
     const startTime = process.hrtime();
 
     // Retrieve ready jobs from database
-    const allReadyJobs = await QUEUEDB.Job.find({ status: 'ready' });
+    const allReadyJobs = await QUEUEDB.Job.find({ status: 'ready' }).toArray();
 
     // Iterate on each ready job to notify its owner
     for (const readyJob of allReadyJobs) {
