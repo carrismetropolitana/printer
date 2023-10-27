@@ -1,0 +1,24 @@
+.container {
+  font-family: monospace;
+  font-weight: 6500;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--reference-1);
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  text-align: center;
+  opacity: 0.5;
+  transition: all 100ms ease;
+}
+
+.container:hover .column {
+  opacity: 1;
+  background-color: var(--reference-0);
+}

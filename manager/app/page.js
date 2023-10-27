@@ -1,6 +1,6 @@
 /* * */
 
-import JobsTable from '@/components/JobsTable/JobsTable';
+import JobsExplorer from '@/components/JobsExplorer/JobsExplorer';
 
 export default function Page() {
   //
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <div>
-      <JobsTable />
+      <JobsExplorer />
     </div>
   );
 }
