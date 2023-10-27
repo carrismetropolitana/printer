@@ -8,6 +8,7 @@ const timeCalc = require('./services/timeCalc');
 /* * */
 
 const RUN_INTERVAL = 30000; // seconds
+const OUTPUT_DIRECTORY = '/app/jobsdata/pdfs';
 
 /* * */
 
@@ -40,6 +41,9 @@ const RUN_INTERVAL = 30000; // seconds
     console.log(`→ Starting run to render jobs...`);
     const startTime = process.hrtime();
 
+    // Create an empty directory in the given path if it does not yet exists
+    if (!fs.existsSync(OUTPUT_DIRECTORY)) fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
+
     // Initiate a new page on the browser
     const browserPage = await BROSWER_INSTANCE.newPage();
 
@@ -70,7 +74,7 @@ const RUN_INTERVAL = 30000; // seconds
         });
 
         // Save the PDF to the shared volume on disk
-        fs.writeFileSync(`/app/jobsdata/pdfs/${newJob._id}.pdf`, pdfData);
+        fs.writeFileSync(`${OUTPUT_DIRECTORY}/${newJob._id}.pdf`, pdfData);
 
         // Update status of this job
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { status: 'ready', date_printed: new Date().toISOString() });
