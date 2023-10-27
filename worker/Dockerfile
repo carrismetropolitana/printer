@@ -8,4 +8,6 @@ RUN npm --omit=dev install
 
 COPY . .
 
+USER root
+
 CMD ["node", "index.js"]
