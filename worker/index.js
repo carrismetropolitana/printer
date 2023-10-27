@@ -43,7 +43,7 @@ const RUN_INTERVAL = 30000; // seconds
     const browserPage = await BROSWER_INSTANCE.newPage();
 
     // Retrieve new jobs from database
-    const allNewJobs = await QUEUEDB.Job.find({ status: 'new' });
+    const allNewJobs = await QUEUEDB.Job.find({ status: 'new' }).toArray();
 
     // Iterate on each new job to notify its owner
     for (const newJob of allNewJobs) {
