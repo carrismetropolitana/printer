@@ -5,7 +5,7 @@
 export default async function API(request) {
   //
   // Build the endpoint string
-  let endpoint = '/api';
+  let endpoint = '/manager/api';
   if (request.service) endpoint += `/${request.service}`;
   if (request.resourceId) endpoint += `/${request.resourceId}`;
   if (request.operation) endpoint += `/${request.operation}`;
