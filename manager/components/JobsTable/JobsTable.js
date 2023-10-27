@@ -13,7 +13,7 @@ export default function JobsTable() {
   //
   // A. Fetch data
 
-  const { data: allJobsData, mutate: allJobsMutate } = useSWR('/api/jobs');
+  const { data: allJobsData, mutate: allJobsMutate } = useSWR('/manager/api/jobs');
 
   //
   // B. Handle actions
