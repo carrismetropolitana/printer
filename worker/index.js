@@ -70,7 +70,7 @@ const RUN_INTERVAL = 30000; // seconds
         });
 
         // Save the PDF to the shared volume on disk
-        fs.writeFileSync(`/app/jobsdata/${newJob._id}.pdf`, pdfData);
+        fs.writeFileSync(`/app/jobsdata/pdfs/${newJob._id}.pdf`, pdfData);
 
         // Update status of this job
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { status: 'ready', date_printed: new Date().toISOString() });
