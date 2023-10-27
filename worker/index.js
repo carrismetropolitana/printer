@@ -3,6 +3,7 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const QUEUEDB = require('./services/QUEUEDB');
+const timeCalc = require('./services/timeCalc');
 
 /* * */
 
