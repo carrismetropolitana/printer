@@ -1,6 +1,6 @@
 FROM ghcr.io/puppeteer/puppeteer
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 

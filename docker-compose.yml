@@ -117,7 +117,7 @@ services:
         max-size: '1m'
         max-file: '1'
     volumes:
-      - ./jobsdata:/app/jobsdata
+      - ./jobsdata:/usr/src/app/jobsdata
 
   # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # #
