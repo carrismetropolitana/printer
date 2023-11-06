@@ -9,7 +9,7 @@ RUN npm --omit=dev install
 COPY . .
 
 RUN mkdir -p /home/pptruser/jobsdata
-RUN chown -R pptruser:nodejs /home/pptruser/jobsdata
+RUN chown -R pptruser:pptruser /home/pptruser/jobsdata
 RUN chmod -R 755 /home/pptruser/jobsdata
 
 CMD ["node", "index.js"]
