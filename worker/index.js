@@ -42,7 +42,8 @@ const OUTPUT_DIRECTORY = '/home/pptruser/jobsdata/pdfs';
     const startTime = process.hrtime();
 
     // Create an empty directory in the given path if it does not yet exists
-    if (!fs.existsSync(OUTPUT_DIRECTORY)) fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
+    console.log('fs.existsSync(OUTPUT_DIRECTORY)', fs.existsSync(OUTPUT_DIRECTORY) ? true : false);
+    // if (!fs.existsSync(OUTPUT_DIRECTORY)) fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
 
     // Initiate a new page on the browser
     const browserPage = await BROSWER_INSTANCE.newPage();
