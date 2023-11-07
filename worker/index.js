@@ -80,7 +80,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
 
         console.log('newJob', newJob);
         // Update status of this job
-        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { status: 'ready', date_printed: new Date().toISOString() });
+        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'ready', date_printed: new Date().toISOString() } });
 
         // Log progress
         console.log(`→ _id: ${newJob._id} | owner_email: ${newJob.owner_email}`);
