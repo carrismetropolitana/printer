@@ -1,22 +1,39 @@
-FROM ghcr.io/puppeteer/puppeteer
+FROM node:20@sha256:cb7cd40ba6483f37f791e1aace576df449fc5f75332c19ff59e2c6064797160e
 
-USER root
+# Install necessary dependencies for Chrome
+RUN apt-get update \
+    && apt-get install -y wget gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/googlechrome-linux-keyring.gpg \
+    && sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/googlechrome-linux-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-khmeros fonts-kacst fonts-freefont-ttf libxss1 dbus dbus-x11 \
+    --no-install-recommends \
+    && service dbus start \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd -r pptruser && useradd -rm -g pptruser -G audio,video pptruser
 
+# Set the working directory
 WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
+# Install Node.js dependencies
 RUN npm --omit=dev install
 
+# Copy the rest of the application files
 COPY . .
 
-# Copy the entrypoint script into the container
-COPY docker-entrypoint.sh /usr/src/app/docker-entrypoint.sh
+# Create necessary directories and set permissions
+RUN mkdir -p /home/pptruser/jobsdata/pdfs/ \
+    && chown -R pptruser:pptruser /home/pptruser/jobsdata/pdfs/ \
+    && chmod -R 755 /home/pptruser/jobsdata/pdfs/
 
-# Set executable permissions on the entrypoint script
-RUN chmod +x /usr/src/app/docker-entrypoint.sh
-
+# Switch to the pptruser
 USER pptruser
 
-# Use the entrypoint script as the command to be executed
-ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+# Set up environment variable for Puppeteer
+ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
+
+# Command to start the Node.js application
+CMD ["node", "index.js"]
