@@ -47,6 +47,8 @@ module.exports = async (request, reply) => {
     render_path: request.body.render_path,
     render_format: request.body.render_format || 'A4',
     //
+    filename: request.body.filename,
+    //
   });
 
   // Return the created job to the caller

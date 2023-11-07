@@ -22,11 +22,11 @@ module.exports = async (request, reply) => {
   if (!fs.existsSync(`${OUTPUT_DIRECTORY}/${foundRequestedJob._id}.pdf`)) return reply.code(404).send();
 
   // Update download date for this job
-  await QUEUEDB.Job.updateOne({ _id: QUEUEDB.toObjectId(request.params.id) }, { $set: { date_downloaded: [...foundRequestedJob.date_downloaded, new Date().toISOString()] } });
+  await QUEUEDB.Job.updateOne({ _id: QUEUEDB.toObjectId(request.params.id) }, { $set: { status: 'downloaded', date_downloaded: [...foundRequestedJob.date_downloaded, new Date().toISOString()] } });
 
   // Read the file to the client
   reply.header('Content-Type', 'application/pdf');
-  reply.header('Content-Disposition', `attachment; filename=${foundRequestedJob._id}.pdf`);
+  reply.header('Content-Disposition', `attachment; filename=${foundRequestedJob.filename || foundRequestedJob._id}.pdf`);
   const fileStream = fs.createReadStream(`${OUTPUT_DIRECTORY}/${foundRequestedJob._id}.pdf`);
   return reply.send(fileStream);
 
