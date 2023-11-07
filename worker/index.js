@@ -61,7 +61,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'processing', date_processing: new Date().toISOString() } });
 
         // Build the complete URL to be rendered
-        const completeUrl = `https://${newJob.print_host}/${newJob.print_path}`;
+        const completeUrl = `https://${newJob.render_host}/${newJob.render_path}`;
 
         // Navigate to the URL
         await browserPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: 10000 });
@@ -74,7 +74,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
 
         // Print the PDF
         const pdfData = await browserPage.pdf({
-          format: newJob.print_format || 'A4',
+          format: newJob.render_format || 'A4',
           printBackground: true,
         });
 
@@ -89,7 +89,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
 
         //
       } catch (err) {
-        console.log('🔴 → Error printing "%s"', `https://${newJob.print_host}/${newJob.print_path}`, err);
+        console.log('🔴 → Error printing "%s"', `https://${newJob.render_host}/${newJob.render_path}`, err);
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'error' } });
       }
     }
