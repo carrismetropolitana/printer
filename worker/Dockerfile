@@ -58,7 +58,8 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /app \
     && mkdir -p /output/jobsdata \
-    && chown -R pptruser:pptruser /output/jobsdata/
+    && chown -R pptruser:pptruser /output/jobsdata/ \
+    && chmod -R 777 /output/jobsdata/
 
 
 # Run user as non privileged.
