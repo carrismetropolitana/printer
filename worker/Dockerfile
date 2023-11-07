@@ -14,8 +14,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd -r pptruser && useradd -rm -g pptruser -G audio,video pptruser
 
-RUN addgroup --system --gid 1001 pptruser
-RUN adduser --system --uid 1001 pptruser
+# RUN addgroup --system --gid 1001 pptruser
+# RUN adduser --system --uid 1001 pptruser
 
 # Create necessary directories and set permissions
 RUN mkdir -p /home/pptruser/jobsdata \
