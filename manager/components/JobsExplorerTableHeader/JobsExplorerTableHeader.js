@@ -18,8 +18,8 @@ export default function JobsExplorerTableHeader() {
         <div className={styles.column}>Job #ID</div>
         <div className={styles.column}>Status</div>
         <div className={styles.column}>Date Created</div>
-        <div className={styles.column}>print_host</div>
-        <div className={styles.column}>print_path</div>
+        <div className={styles.column}>render_host</div>
+        <div className={styles.column}>render_path</div>
         <div className={styles.column}>owner_name</div>
         <div className={styles.column}>owner_email</div>
       </JobsExplorerTableRowContainer>

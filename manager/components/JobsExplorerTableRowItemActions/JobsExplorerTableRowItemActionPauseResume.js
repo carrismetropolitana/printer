@@ -24,23 +24,10 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   //
   // B. Handle actions
 
-  const handleRestart = async () => {
+  const handleResumeRestart = async () => {
     try {
       setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'delete', method: 'DELETE' });
-      allJobsMutate();
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err);
-      allJobsMutate();
-      setIsLoading(false);
-    }
-  };
-
-  const handleResume = async () => {
-    try {
-      setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'delete', method: 'DELETE' });
+      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status', method: 'POST', body: { status: 'registered' } });
       allJobsMutate();
       setIsLoading(false);
     } catch (err) {
@@ -53,7 +40,7 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   const handlePause = async () => {
     try {
       setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'delete', method: 'DELETE' });
+      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status', method: 'POST', body: { status: 'paused' } });
       allJobsMutate();
       setIsLoading(false);
     } catch (err) {
@@ -67,11 +54,11 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   // C. Render components
 
   switch (jobData.status) {
-    case 'finished':
+    case 'registered':
       return (
-        <Tooltip label="Restart" withArrow>
-          <ActionIcon onClick={handleRestart} loading={isLoading} variant="light" color="green">
-            <IconRotate2 size={18} />
+        <Tooltip label="Pause" withArrow>
+          <ActionIcon onClick={handlePause} loading={isLoading} variant="light" color="yellow">
+            <IconPlayerPause size={18} />
           </ActionIcon>
         </Tooltip>
       );
@@ -79,17 +66,24 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
     case 'paused':
       return (
         <Tooltip label="Resume" withArrow>
-          <ActionIcon onClick={handleResume} loading={isLoading} variant="light" color="yellow">
+          <ActionIcon onClick={handleResumeRestart} loading={isLoading} variant="light" color="blue">
             <IconPlayerTrackNext size={18} />
           </ActionIcon>
         </Tooltip>
       );
 
+    case 'processing':
+      return (
+        <ActionIcon variant="light" disabled>
+          <IconRotate2 size={18} />
+        </ActionIcon>
+      );
+
     default:
       return (
-        <Tooltip label="Pause" withArrow>
-          <ActionIcon onClick={handlePause} loading={isLoading} variant="light" color="yellow">
-            <IconPlayerPause size={18} />
+        <Tooltip label="Restart" withArrow>
+          <ActionIcon onClick={handleResumeRestart} loading={isLoading} variant="light" color="green">
+            <IconRotate2 size={18} />
           </ActionIcon>
         </Tooltip>
       );

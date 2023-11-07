@@ -47,7 +47,7 @@ export default function JobsExplorerToolbar() {
 
   return (
     <div className={styles.container}>
-      <Select data={availableStatuses} placeholder="Status" onChange={handleChangeSelectedStatus} />
+      <Select data={availableStatuses} placeholder="Status" onChange={handleChangeSelectedStatus} clearable />
       <Button onClick={handleNew}>New</Button>
     </div>
   );

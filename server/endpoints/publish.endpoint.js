@@ -29,15 +29,28 @@ module.exports = async (request, reply) => {
 
   // If everything checks out, create a new job in the queue
   const newRequestedJob = await QUEUEDB.Job.insertOne({
-    // id: IDGENERATOR.random(),
-    status: 'new',
+    // Job status
+    status: 'registered',
+    // Counters
+    notification_count: 0,
+    download_count: 0,
+    // Timestamps
+    date_registered: new Date().toISOString(),
+    date_processing: null,
+    date_ready: null,
+    date_notified: [],
+    date_downloaded: [],
+    date_expired: null,
+    // Job owner
     owner_name: request.body.owner_name,
     owner_email: request.body.owner_email,
     owner_lang: request.body.owner_lang,
     gdpr_consent: request.body.gdpr_consent,
-    print_host: request.body.print_host,
-    print_path: request.body.print_path,
-    date_created: new Date().toISOString(),
+    // Render info
+    render_host: request.body.render_host,
+    render_path: request.body.render_path,
+    render_format: request.body.render_format || 'A4',
+    //
   });
 
   // Return the created job to the caller

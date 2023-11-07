@@ -6,18 +6,20 @@ const QUEUEDB = require('./services/QUEUEDB');
 //
 // IMPORT ENDPOINTS
 
-const publishEndpoint = require('./endpoints/publish.endpoint');
-const downloadEndpoint = require('./endpoints/download.endpoint');
-const updateEndpoint = require('./endpoints/update.endpoint');
 const listEndpoint = require('./endpoints/list.endpoint');
+const publishEndpoint = require('./endpoints/publish.endpoint');
+const statusEndpoint = require('./endpoints/status.endpoint');
+const updateEndpoint = require('./endpoints/update.endpoint');
+const downloadEndpoint = require('./endpoints/download.endpoint');
 
 //
 // ENDPOINTS
 
-fastify.post('/publish', publishEndpoint);
-fastify.get('/download/:id', downloadEndpoint);
-fastify.get('/update/:id', updateEndpoint);
 fastify.get('/list', listEndpoint);
+fastify.post('/publish', publishEndpoint);
+fastify.get('/status/:id', statusEndpoint);
+fastify.get('/update/:id', updateEndpoint);
+fastify.get('/download/:id', downloadEndpoint);
 
 //
 // START FASTIFY SERVER

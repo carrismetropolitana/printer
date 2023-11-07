@@ -41,8 +41,8 @@ export default function JobsExplorerTableRowItemActionDownload({ jobData }) {
   // C. Render components
 
   return (
-    <Tooltip label="Download" withArrow disabled={jobData.status !== 'ready'}>
-      <ActionIcon onClick={handleDownload} loading={isLoading} disabled={jobData.status !== 'ready'} variant="light" color="gray">
+    <Tooltip label="Download" withArrow disabled={jobData.status === 'ready' || jobData.status === 'downloaded'}>
+      <ActionIcon onClick={handleDownload} loading={isLoading} disabled={jobData.status === 'ready' || jobData.status === 'downloaded'} variant="light" color="grape">
         <IconDownload size={18} />
       </ActionIcon>
     </Tooltip>

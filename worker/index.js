@@ -57,6 +57,9 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
       try {
         //
 
+        // Update status of this job
+        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'processing', date_processing: new Date().toISOString() } });
+
         // Build the complete URL to be rendered
         const completeUrl = `https://${newJob.print_host}/${newJob.print_path}`;
 
@@ -78,9 +81,8 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
         // Save the PDF to the shared volume on disk
         fs.writeFileSync(`${OUTPUT_DIRECTORY}/${newJob._id}.pdf`, pdfData);
 
-        console.log('newJob', newJob);
         // Update status of this job
-        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'ready', date_printed: new Date().toISOString() } });
+        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'ready', date_ready: new Date().toISOString() } });
 
         // Log progress
         console.log(`→ _id: ${newJob._id} | owner_email: ${newJob.owner_email}`);
@@ -88,6 +90,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
         //
       } catch (err) {
         console.log('🔴 → Error printing "%s"', `https://${newJob.print_host}/${newJob.print_path}`, err);
+        await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'error' } });
       }
     }
 

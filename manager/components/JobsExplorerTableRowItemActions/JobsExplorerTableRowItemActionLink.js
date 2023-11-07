@@ -19,7 +19,7 @@ export default function JobsExplorerTableRowItemActionLink({ jobData }) {
 
   return hasValidLink ? (
     <Link href={`https://${jobData.render_host}/${jobData.render_path}`} target="_blank">
-      <Tooltip label="Open Render Page" withArrow>
+      <Tooltip label="Open Rendered Page" withArrow>
         <ActionIcon variant="light" color="gray">
           <IconExternalLink size={18} />
         </ActionIcon>

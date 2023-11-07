@@ -19,22 +19,11 @@ module.exports = async (request, reply) => {
   // If job is already expired (the file was deleted) return 410 Gone
   if (foundRequestedJob.status === 'expired') return reply.code(410).send(foundRequestedJobSimplified);
 
-  // If job is already done (the job can no longe be updated) return 403 Forbidden
-  if (foundRequestedJob.status === 'ready' || foundRequestedJob.status === 'done') return reply.code(403).send(foundRequestedJobSimplified);
+  // If job is not yet ready (the file is not yet available) return 204 No Content
+  if (foundRequestedJob.status !== 'ready') return reply.code(204).send(foundRequestedJobSimplified);
 
-  // Update the job with the new details
-  await QUEUEDB.Job.updateOne(
-    { _id: QUEUEDB.toObjectId(request.params.id) },
-    {
-      $set: {
-        status: 'downloaded',
-        download_count: foundRequestedJob.download_count++,
-        date_downloaded: [...foundRequestedJob.date_downloaded, new Date().toISOString()],
-      },
-    }
-  );
-
-  // Redirect client to the file?
+  // If the jobs is found, send the status object
+  return reply.code(200).send(foundRequestedJobSimplified);
 
   //
 };

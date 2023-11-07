@@ -1,9 +1,8 @@
+/* * */
+
 import delay from '@/services/delay';
 import QUEUEDB from '@/services/QUEUEDB';
 
-/* * */
-/* LIST ALL JOBS */
-/* This endpoint returns all jobs. */
 /* * */
 
 export default async function handler(req, res) {
@@ -38,4 +37,6 @@ export default async function handler(req, res) {
     console.log(err);
     return await res.status(500).json({ message: 'Cannot delete Job.' });
   }
+
+  //
 }

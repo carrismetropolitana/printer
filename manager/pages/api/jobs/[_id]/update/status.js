@@ -10,11 +10,21 @@ export default async function handler(req, res) {
   await delay();
 
   // 0.
-  // Refuse request if not GET
+  // Refuse request if not POST
 
-  if (req.method != 'GET') {
-    await res.setHeader('Allow', ['GET']);
+  if (req.method != 'POST') {
+    await res.setHeader('Allow', ['POST']);
     return await res.status(405).json({ message: `Method ${req.method} Not Allowed.` });
+  }
+
+  // 1.
+  // Parse req.body
+
+  try {
+    req.body = JSON.parse(req.body);
+  } catch (err) {
+    console.log(err);
+    return await res.status(500).json({ message: 'Cannot parse req.body.' });
   }
 
   // 2.
@@ -31,19 +41,11 @@ export default async function handler(req, res) {
   // List all documents
 
   try {
-    const newDoc = await QUEUEDB.Job.insertOne({
-      owner_name: 'Teste',
-      owner_email: 'test@email.com',
-      owner_lang: 'pt',
-      gdpr_consent: true,
-      print_host: 'escolas.carrismetropolitana.pt',
-      print_path: '803239/render',
-      status: 'published',
-    });
-    return await res.status(200).send(newDoc);
+    const result = await QUEUEDB.Job.updateOne({ _id: QUEUEDB.toObjectId(req.query._id) }, { $set: { status: req.body.status } });
+    return await res.status(200).send(result);
   } catch (err) {
     console.log(err);
-    return await res.status(500).json({ message: 'Cannot list Jobs.' });
+    return await res.status(500).json({ message: 'Cannot delete Job.' });
   }
 
   //
