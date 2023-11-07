@@ -8,6 +8,7 @@ const QUEUEDB = require('./services/QUEUEDB');
 
 const publishEndpoint = require('./endpoints/publish.endpoint');
 const downloadEndpoint = require('./endpoints/download.endpoint');
+const updateEndpoint = require('./endpoints/update.endpoint');
 const listEndpoint = require('./endpoints/list.endpoint');
 
 //
@@ -15,6 +16,7 @@ const listEndpoint = require('./endpoints/list.endpoint');
 
 fastify.post('/publish', publishEndpoint);
 fastify.get('/download/:id', downloadEndpoint);
+fastify.get('/update/:id', updateEndpoint);
 fastify.get('/list', listEndpoint);
 
 //
