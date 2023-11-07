@@ -10,9 +10,10 @@ RUN npm --omit=dev install
 
 COPY . .
 
-RUN mkdir -p /home/pptruser/jobsdata/pdfs/
-RUN chown -R pptruser:pptruser /home/pptruser/jobsdata/pdfs/
-RUN chmod -R 755 /home/pptruser/jobsdata/pdfs/
+# Create the jobsdata directory and set the correct permissions
+RUN mkdir -p /home/pptruser/jobsdata
+RUN chown -R pptruser:pptruser /home/pptruser/jobsdata/
+RUN chmod -R 755 /home/pptruser/jobsdata/
 
 USER pptruser
 
