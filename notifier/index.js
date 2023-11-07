@@ -37,29 +37,33 @@ const RUN_INTERVAL = 30000; // seconds
 
     // Iterate on each ready job to notify its owner
     for (const jobData of allReadyJobs) {
-      //
+      try {
+        //
 
-      // Skip if already notified job owner
-      if (jobData.notification_count > 0) continue;
+        // Skip if already notified job owner
+        if (jobData.notification_count > 0) continue;
 
-      // Skip if job has no onwer email
-      if (!jobData.owner_email) continue;
+        // Skip if job has no onwer email
+        if (!jobData.owner_email) continue;
 
-      // Send an email to the owner
-      await SMTPSERVICE.transport.sendMail({
-        from: `"Carris Metropolitana" <contact@joao.earth>`,
-        to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
-        subject: `O seu PDF está pronto!`,
-        html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Clique para Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
-      });
+        // Send an email to the owner
+        await SMTPSERVICE.transport.sendMail({
+          from: `"Carris Metropolitana" <contact@joao.earth>`,
+          to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
+          subject: `O seu PDF está pronto!`,
+          html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Clique para Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
+        });
 
-      // Update status of this job
-      await QUEUEDB.Job.updateOne({ _id: jobData._id }, { $set: { notification_count: jobData.notification_count++, date_notified: [...jobData.date_notified, new Date().toISOString()] } });
+        // Update status of this job
+        await QUEUEDB.Job.updateOne({ _id: jobData._id }, { $set: { notification_count: jobData.notification_count++, date_notified: [...jobData.date_notified, new Date().toISOString()] } });
 
-      // Log progress
-      console.log(`→ id: ${jobData._id} | owner_email: ${jobData.owner_email}`);
+        // Log progress
+        console.log(`→ id: ${jobData._id} | owner_email: ${jobData.owner_email}`);
 
-      //
+        //
+      } catch (err) {
+        console.log('🔴 → Error notifying "%s"', jobData._id, err);
+      }
     }
 
     // Switch the flag OFF
