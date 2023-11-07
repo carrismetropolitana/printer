@@ -28,6 +28,10 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
   });
 
+  // Create an empty directory in the given path if it does not yet exists
+  console.log('fs.existsSync(OUTPUT_DIRECTORY)', fs.existsSync(OUTPUT_DIRECTORY) ? true : false);
+  if (!fs.existsSync(OUTPUT_DIRECTORY)) fs.mkdirSync(OUTPUT_DIRECTORY);
+
   setInterval(async () => {
     //
 
@@ -41,10 +45,6 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
     console.log(`------------------------------------------------------------------------`);
     console.log(`→ Starting run to render jobs...`);
     const startTime = process.hrtime();
-
-    // Create an empty directory in the given path if it does not yet exists
-    console.log('fs.existsSync(OUTPUT_DIRECTORY)', fs.existsSync(OUTPUT_DIRECTORY) ? true : false);
-    if (!fs.existsSync(OUTPUT_DIRECTORY)) fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
 
     // Initiate a new page on the browser
     const browserPage = await BROSWER_INSTANCE.newPage();
@@ -78,6 +78,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
         // Save the PDF to the shared volume on disk
         fs.writeFileSync(`${OUTPUT_DIRECTORY}/${newJob._id}.pdf`, pdfData);
 
+        console.log('newJob', newJob);
         // Update status of this job
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { status: 'ready', date_printed: new Date().toISOString() });
 
