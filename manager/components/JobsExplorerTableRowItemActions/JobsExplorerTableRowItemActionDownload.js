@@ -16,6 +16,8 @@ export default function JobsExplorerTableRowItemActionDownload({ jobData }) {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const jobCanBeDownloaded = jobData.status === 'ready' || jobData.status === 'downloaded';
+
   //
   // B. Fetch data
 
@@ -41,8 +43,8 @@ export default function JobsExplorerTableRowItemActionDownload({ jobData }) {
   // C. Render components
 
   return (
-    <Tooltip label="Download" withArrow disabled={jobData.status === 'ready' || jobData.status === 'downloaded'}>
-      <ActionIcon onClick={handleDownload} loading={isLoading} disabled={jobData.status === 'ready' || jobData.status === 'downloaded'} variant="light" color="grape">
+    <Tooltip label="Download" withArrow disabled={!jobCanBeDownloaded}>
+      <ActionIcon onClick={handleDownload} loading={isLoading} disabled={!jobCanBeDownloaded} variant="light" color="grape">
         <IconDownload size={18} />
       </ActionIcon>
     </Tooltip>
