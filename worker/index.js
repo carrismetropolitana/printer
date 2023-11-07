@@ -24,7 +24,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
   // Setup browser instance on init
   const BROSWER_INSTANCE = await puppeteer.launch({
     headless: 'new',
-    executablePath: '/usr/bin/google-chrome',
+    executablePath: 'google-chrome-stable',
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
   });
 
