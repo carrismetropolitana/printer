@@ -26,7 +26,7 @@ export default function JobsExplorerCreate() {
       method: 'POST',
       body: JSON.stringify({
         owner_name: 'Teste',
-        owner_email: 'test@email.com',
+        owner_email: 'johnyvasconcelos@icloud.com',
         owner_lang: 'pt',
         gdpr_consent: true,
         print_host: 'escolas.carrismetropolitana.pt',

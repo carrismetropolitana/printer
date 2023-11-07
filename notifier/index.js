@@ -36,22 +36,22 @@ const RUN_INTERVAL = 30000; // seconds
     const allReadyJobs = await QUEUEDB.Job.find({ status: 'ready' }).toArray();
 
     // Iterate on each ready job to notify its owner
-    for (const readyJob of allReadyJobs) {
+    for (const jobData of allReadyJobs) {
       //
 
       // Send an email to the owner
       await SMTPSERVICE.transport.sendMail({
         from: `"Carris Metropolitana" <foo@example.com>`,
-        to: `"${readyJob.owner_name}" <${readyJob.owner_email}>`,
+        to: `"${jobData.owner_name}" <${jobData.owner_email}>`,
         subject: `O flyer está pronto`,
-        html: `<a href="${readyJob.download_url}">Click to Download</a> <pre>${JSON.stringify(readyJob)}</pre>`,
+        html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Click to Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
       });
 
       // Update status of this job
-      await QUEUEDB.Job.updateOne({ _id: readyJob._id }, { status: 'waiting_download', date_notified: new Date().toISOString() });
+      await QUEUEDB.Job.updateOne({ _id: jobData._id }, { status: 'waiting_download', date_notified: new Date().toISOString() });
 
       // Log progress
-      console.log(`→ id: ${readyJob._id} | owner_email: ${readyJob.owner_email}`);
+      console.log(`→ id: ${jobData._id} | owner_email: ${jobData.owner_email}`);
 
       //
     }

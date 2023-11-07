@@ -7,12 +7,12 @@ const nodemailer = require('nodemailer');
 class SMTPSERVICE {
   constructor() {
     this.transport = nodemailer.createTransport({
-      host: 'smtp.forwardemail.net',
-      port: 465,
+      host: process.env.EMAIL_SERVER_HOST,
+      port: process.env.EMAIL_SERVER_PORT,
       secure: true,
       auth: {
-        user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
-        pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD',
+        user: process.env.EMAIL_SERVER_USER,
+        pass: process.env.EMAIL_SERVER_PASSWORD,
       },
     });
   }
