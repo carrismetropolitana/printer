@@ -30,9 +30,6 @@ module.exports = async (request, reply) => {
   const newRequestedJob = await QUEUEDB.Job.insertOne({
     // Job status
     status: 'registered',
-    // Counters
-    notification_count: 0,
-    download_count: 0,
     // Timestamps
     date_registered: new Date().toISOString(),
     date_processing: null,

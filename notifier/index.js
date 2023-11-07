@@ -42,7 +42,7 @@ const RUN_INTERVAL = 30000; // seconds
         //
 
         // Skip if already notified job owner
-        if (jobData.notification_count > 0) continue;
+        if (jobData.date_notified.length > 0) continue;
 
         // Skip if job has no onwer email
         if (!jobData.owner_email) continue;
@@ -56,7 +56,7 @@ const RUN_INTERVAL = 30000; // seconds
         });
 
         // Update status of this job
-        await QUEUEDB.Job.updateOne({ _id: jobData._id }, { $set: { notification_count: jobData.notification_count + 1, date_notified: [...jobData.date_notified, new Date().toISOString()] } });
+        await QUEUEDB.Job.updateOne({ _id: jobData._id }, { $set: { date_notified: [...jobData.date_notified, new Date().toISOString()] } });
 
         // Log progress
         console.log(`→ id: ${jobData._id} | owner_email: ${jobData.owner_email}`);
