@@ -26,8 +26,8 @@ export default function JobsExplorerTableRowItem({ jobData }) {
 
         <div className={styles.column}>{jobData.status}</div>
 
-        <div className={styles.column}>{jobData.notification_count}</div>
-        <div className={styles.column}>{jobData.download_count}</div>
+        <div className={styles.column}>{jobData.date_notified?.length || 0}</div>
+        <div className={styles.column}>{jobData.date_downloaded?.length || 0}</div>
 
         <div className={styles.column}>{jobData.date_registered}</div>
         <div className={styles.column}>{jobData.date_processing}</div>
