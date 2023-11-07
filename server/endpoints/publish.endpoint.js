@@ -1,11 +1,10 @@
 /* * */
 
 const QUEUEDB = require('../services/QUEUEDB');
-const IDGENERATOR = require('../services/IDGENERATOR');
 
 /* * */
 
-const ALLOWED_PRINT_HOSTS = ['www.carrismetropolitana.pt', 'beta.carrismetropolitana.pt', 'escolas.carrismetropolitana.pt'];
+const ALLOWED_RENDER_HOSTS = ['www.carrismetropolitana.pt', 'beta.carrismetropolitana.pt', 'escolas.carrismetropolitana.pt'];
 
 /* * */
 
@@ -19,13 +18,13 @@ module.exports = async (request, reply) => {
   const requestHasValidEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(request.body.owner_email);
   if (!requestHasValidEmailAddress) return reply.code(400).send('Field "owner_email" is not a valid email address.');
 
-  // If the request print host is not allowed, send 400 Bad Request
-  const allowedPrintHosts = new Set(ALLOWED_PRINT_HOSTS);
-  const requestHasAllowedPrintHost = allowedPrintHosts.has(request.body.print_host);
-  if (!requestHasAllowedPrintHost) return reply.code(400).send('Field "print_host" is not an allowed print host.');
+  // If the request render host is not allowed, send 400 Bad Request
+  const allowedPrintHosts = new Set(ALLOWED_RENDER_HOSTS);
+  const requestHasAllowedPrintHost = allowedPrintHosts.has(request.body.render_host);
+  if (!requestHasAllowedPrintHost) return reply.code(400).send('Field "render_host" is not an allowed print host.');
 
   // If the request print path is not defined, send 400 Bad Request
-  if (!request.body.print_path) return reply.code(400).send('Field "print_path" is not valid.');
+  if (!request.body.render_path) return reply.code(400).send('Field "render_path" is not valid.');
 
   // If everything checks out, create a new job in the queue
   const newRequestedJob = await QUEUEDB.Job.insertOne({
