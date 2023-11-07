@@ -19,18 +19,28 @@ RUN mkdir -p /home/pptruser/jobsdata \
     && chown -R pptruser:pptruser /home/pptruser/jobsdata/ \
     && chmod -R 755 /home/pptruser/jobsdata/
 
+
 USER pptruser
 
 WORKDIR /home/pptruser
 
-COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
 
 ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
 
+# Install Node.js dependencies
+RUN npm --omit=dev install
+
+# Copy the rest of the application files
+COPY . .
+
 # Install @puppeteer/browsers, puppeteer and puppeteer-core into /home/pptruser/node_modules.
-RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
-    && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
-    && (node -e "require('child_process').execSync(require('puppeteer').executablePath() + ' --credits', {stdio: 'inherit'})" > THIRD_PARTY_NOTICES)
+# RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
+#     && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
+#     && (node -e "require('child_process').execSync(require('puppeteer').executablePath() + ' --credits', {stdio: 'inherit'})" > THIRD_PARTY_NOTICES)
 
 # CMD ["google-chrome-stable"]
 CMD ["node", "index.js"]
