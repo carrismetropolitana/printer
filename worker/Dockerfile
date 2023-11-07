@@ -10,11 +10,13 @@ RUN npm --omit=dev install
 
 COPY . .
 
-# Create the jobsdata directory and set the correct permissions
-RUN mkdir -p /home/pptruser/jobsdata
-RUN chown -R pptruser:pptruser /home/pptruser/jobsdata/
-RUN chmod -R 755 /home/pptruser/jobsdata/
+# Copy the entrypoint script into the container
+COPY docker-entrypoint.sh /usr/src/app/docker-entrypoint.sh
+
+# Set executable permissions on the entrypoint script
+RUN chmod +x /usr/src/app/docker-entrypoint.sh
 
 USER pptruser
 
-CMD ["node", "index.js"]
+# Use the entrypoint script as the command to be executed
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
