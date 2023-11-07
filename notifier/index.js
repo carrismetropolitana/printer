@@ -39,16 +39,22 @@ const RUN_INTERVAL = 30000; // seconds
     for (const jobData of allReadyJobs) {
       //
 
+      // Skip if already notified job owner
+      if (jobData.notification_count > 0) continue;
+
+      // Skip if job has no onwer email
+      if (!jobData.owner_email) continue;
+
       // Send an email to the owner
       await SMTPSERVICE.transport.sendMail({
         from: `"Carris Metropolitana" <foo@example.com>`,
-        to: `"${jobData.owner_name}" <${jobData.owner_email}>`,
-        subject: `O flyer está pronto`,
-        html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Click to Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
+        to: `"${jobData.owner_name || 'PDF Service'}" <${jobData.owner_email}>`,
+        subject: `O seu PDF está pronto!`,
+        html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Clique para Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
       });
 
       // Update status of this job
-      await QUEUEDB.Job.updateOne({ _id: jobData._id }, { status: 'waiting_download', date_notified: new Date().toISOString() });
+      await QUEUEDB.Job.updateOne({ _id: jobData._id }, { notification_count: jobData.notification_count++, date_notified: [...jobData.date_notified, new Date().toISOString()] });
 
       // Log progress
       console.log(`→ id: ${jobData._id} | owner_email: ${jobData.owner_email}`);
