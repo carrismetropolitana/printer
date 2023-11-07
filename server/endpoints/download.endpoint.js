@@ -20,7 +20,7 @@ module.exports = async (request, reply) => {
 
   // Read the file to the client
   reply.header('Content-Type', 'application/pdf');
-  reply.header('Content-Disposition', `attachment; filename=${foundRequestedJob._id}`);
+  reply.header('Content-Disposition', `attachment; filename=${foundRequestedJob._id}.pdf`);
   const fileStream = fs.createReadStream(`${OUTPUT_DIRECTORY}/${foundRequestedJob._id}.pdf`);
   return reply.send(fileStream);
 
