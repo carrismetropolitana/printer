@@ -49,8 +49,8 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
     // Initiate a new page on the browser
     const browserPage = await BROSWER_INSTANCE.newPage();
 
-    // Retrieve new jobs from database
-    const allNewJobs = await QUEUEDB.Job.find({ status: 'new' }).toArray();
+    // Retrieve newly registered jobs from database
+    const allNewJobs = await QUEUEDB.Job.find({ status: 'registered' }).toArray();
 
     // Iterate on each new job to notify its owner
     for (const newJob of allNewJobs) {
