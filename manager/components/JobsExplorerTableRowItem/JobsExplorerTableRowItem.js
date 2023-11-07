@@ -44,6 +44,8 @@ export default function JobsExplorerTableRowItem({ jobData }) {
         <div className={styles.column}>{jobData.render_host}</div>
         <div className={styles.column}>{jobData.render_path}</div>
         <div className={styles.column}>{jobData.render_format}</div>
+
+        <div className={styles.column}>{jobData.filename || '(empty)'}</div>
       </JobsExplorerTableRowContainer>
     </div>
   );

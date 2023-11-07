@@ -33,6 +33,8 @@ export default function JobsExplorerTableHeader() {
         <div className={styles.column}>render_host</div>
         <div className={styles.column}>render_path</div>
         <div className={styles.column}>render_format</div>
+
+        <div className={styles.column}>filename</div>
       </JobsExplorerTableRowContainer>
     </div>
   );
