@@ -47,7 +47,7 @@ const RUN_INTERVAL = 30000; // seconds
 
       // Send an email to the owner
       await SMTPSERVICE.transport.sendMail({
-        from: `"Carris Metropolitana" <contacto@joao.earth>`,
+        from: `"Carris Metropolitana" <contact@joao.earth>`,
         to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
         subject: `O seu PDF está pronto!`,
         html: `<a href="https://printer.carrismetropolitana.pt/download/${jobData._id}">Clique para Download</a> <pre>${JSON.stringify(jobData)}</pre>`,
