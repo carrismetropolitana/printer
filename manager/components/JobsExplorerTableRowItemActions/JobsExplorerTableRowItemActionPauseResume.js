@@ -29,7 +29,7 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   const handleResumeRestart = async () => {
     try {
       setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status', method: 'POST', body: { status: 'registered' } });
+      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status/registered' });
       allJobsMutate();
       setIsLoading(false);
     } catch (err) {
@@ -42,7 +42,7 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   const handlePause = async () => {
     try {
       setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status', method: 'POST', body: { status: 'paused' } });
+      await API({ service: 'jobs', resourceId: jobData._id, operation: 'update/status/paused' });
       allJobsMutate();
       setIsLoading(false);
     } catch (err) {
