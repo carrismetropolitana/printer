@@ -3,11 +3,11 @@
 /* * */
 
 import useSWR from 'swr';
-import API from '@/services/API';
 import styles from './JobsExplorerToolbar.module.css';
 import { useMemo } from 'react';
-import { Button, Select } from '@mantine/core';
+import { Select } from '@mantine/core';
 import { useJobsExplorerContext } from 'contexts/JobsExplorerContext';
+import JobsExplorerCreate from '@/components/JobsExplorerCreate/JobsExplorerCreate';
 
 /* * */
 
@@ -22,7 +22,7 @@ export default function JobsExplorerToolbar() {
   //
   // B. Fetch data
 
-  const { data: allJobsData, mutate: allJobsMutate } = useSWR('/manager/api/jobs');
+  const { data: allJobsData } = useSWR('/manager/api/jobs');
 
   //
   // C. Transform data
@@ -35,11 +35,6 @@ export default function JobsExplorerToolbar() {
   //
   // D. Handle actions
 
-  const handleNew = async () => {
-    await API({ service: 'jobs', operation: 'create', method: 'GET' });
-    allJobsMutate();
-  };
-
   const handleChangeSelectedStatus = (value) => {
     jobsExplorerContext.setSelectedStatus(value);
   };
@@ -50,7 +45,7 @@ export default function JobsExplorerToolbar() {
   return (
     <div className={styles.container}>
       <Select data={availableStatuses} placeholder="Status" onChange={handleChangeSelectedStatus} clearable />
-      <Button onClick={handleNew}>New</Button>
+      <JobsExplorerCreate />
     </div>
   );
 
