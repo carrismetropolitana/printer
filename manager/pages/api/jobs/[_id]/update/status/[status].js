@@ -30,7 +30,7 @@ export default async function handler(req, res) {
   // 3.
   // Validate request 'status' query
 
-  if (req.query.status !== 'registered' || req.query.status !== 'paused') {
+  if (req.query.status !== 'registered' && req.query.status !== 'paused') {
     return await res.status(400).json({ message: 'Unknown status.' });
   }
 
