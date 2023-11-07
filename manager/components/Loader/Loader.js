@@ -1,4 +1,8 @@
+/* * */
+
 import styles from './Loader.module.css';
+
+/* * */
 
 export default function Loader({ visible, full, fixed, size = 30 }) {
   //

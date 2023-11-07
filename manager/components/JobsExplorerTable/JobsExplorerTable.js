@@ -1,12 +1,14 @@
 'use client';
 
+/* * */
+
 import useSWR from 'swr';
+import { useMemo } from 'react';
 import styles from './JobsExplorerTable.module.css';
+import { useJobsExplorerContext } from 'contexts/JobsExplorerContext';
 import JobsExplorerTableHeader from '@/components/JobsExplorerTableHeader/JobsExplorerTableHeader';
 import JobsExplorerTableRowItem from '@/components/JobsExplorerTableRowItem/JobsExplorerTableRowItem';
-import { useMemo } from 'react';
-import { useJobsExplorerContext } from 'contexts/JobsExplorerContext';
-import NoDataLabel from '../NoDataLabel/NoDataLabel';
+import NoDataLabel from '@/components/NoDataLabel/NoDataLabel';
 
 /* * */
 
@@ -19,12 +21,12 @@ export default function JobsExplorerTable() {
   const jobsExplorerContext = useJobsExplorerContext();
 
   //
-  // A. Fetch data
+  // B. Fetch data
 
   const { data: allJobsData } = useSWR('/manager/api/jobs');
 
   //
-  // B. Transform data
+  // C. Transform data
 
   const allJobsFiltered = useMemo(() => {
     if (!allJobsData) return [];
@@ -33,12 +35,12 @@ export default function JobsExplorerTable() {
   }, [allJobsData, jobsExplorerContext.state.status]);
 
   //
-  // B. Render components
+  // D. Render components
 
   return (
     <div className={styles.container}>
       <JobsExplorerTableHeader />
-      <div className={styles.rows}>{allJobsFiltered?.length > 0 ? allJobsFiltered.map((jobData) => <JobsExplorerTableRowItem key={jobData._id} jobData={jobData} />) : <NoDataLabel />}</div>
+      <div className={styles.rows}>{allJobsFiltered?.length > 0 ? allJobsFiltered.map((jobData) => <JobsExplorerTableRowItem key={jobData._id} jobData={jobData} />) : <NoDataLabel fill />}</div>
     </div>
   );
 

@@ -1,5 +1,7 @@
 'use client';
 
+/* * */
+
 import useSWR from 'swr';
 import API from '@/services/API';
 import { useState } from 'react';
@@ -22,7 +24,7 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
 
   //
-  // B. Handle actions
+  // C. Handle actions
 
   const handleResumeRestart = async () => {
     try {
@@ -51,7 +53,7 @@ export default function JobsExplorerTableRowItemActionPauseResume({ jobData }) {
   };
 
   //
-  // C. Render components
+  // D. Render components
 
   switch (jobData.status) {
     case 'registered':

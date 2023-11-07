@@ -1,5 +1,7 @@
 'use client';
 
+/* * */
+
 import useSWR from 'swr';
 import API from '@/services/API';
 import { useState } from 'react';
@@ -42,7 +44,7 @@ export default function JobsExplorerTableRowItemActionDelete({ jobData }) {
 
   return (
     <Tooltip label="Delete" withArrow>
-      <ActionIcon onClick={handleDelete} loading={isLoading} variant="light" color="red">
+      <ActionIcon onClick={handleDelete} loading={isLoading} disabled={jobData.status === 'processing'} variant="light" color="red">
         <IconTrash size={18} />
       </ActionIcon>
     </Tooltip>

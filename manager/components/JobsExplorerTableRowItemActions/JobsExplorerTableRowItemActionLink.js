@@ -1,5 +1,7 @@
 'use client';
 
+/* * */
+
 import Link from 'next/link';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import { IconExternalLink } from '@tabler/icons-react';

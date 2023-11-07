@@ -1,5 +1,7 @@
 'use client';
 
+/* * */
+
 import useSWR from 'swr';
 import API from '@/services/API';
 import { useState } from 'react';
@@ -22,7 +24,7 @@ export default function JobsExplorerTableRowItemActionNotify({ jobData }) {
   const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
 
   //
-  // B. Handle actions
+  // C. Handle actions
 
   const handleNotify = async () => {
     if (jobData.status !== 'ready') return;
@@ -39,7 +41,7 @@ export default function JobsExplorerTableRowItemActionNotify({ jobData }) {
   };
 
   //
-  // C. Render components
+  // D. Render components
 
   return (
     <Tooltip label="Notify User" withArrow disabled={jobData.status !== 'ready'}>

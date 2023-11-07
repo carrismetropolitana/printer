@@ -10,7 +10,7 @@ export default function Providers({ children, session }) {
 
   // SWR CONFIGURATION
   const swrOptions = {
-    refreshInterval: 500,
+    refreshInterval: 250,
     fetcher: async (...args) => {
       const res = await fetch(...args);
       if (!res.ok) {

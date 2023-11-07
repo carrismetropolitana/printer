@@ -1,0 +1,10 @@
+/* * */
+/* CONTAINER */
+
+.container {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-gray-4);
+  text-align: center;
+  cursor: default;
+}

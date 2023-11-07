@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       gdpr_consent: true,
       print_host: 'escolas.carrismetropolitana.pt',
       print_path: '803239/render',
-      status: 'published',
+      status: 'registered',
     });
     return await res.status(200).send(newDoc);
   } catch (err) {

@@ -1,10 +1,5 @@
-'use client';
-
 /* * */
 
-import useSWR from 'swr';
-import API from '@/services/API';
-import { useState } from 'react';
 import styles from './JobsExplorerTableRowItem.module.css';
 import JobsExplorerTableRowContainer from '@/components/JobsExplorerTableRowContainer/JobsExplorerTableRowContainer';
 import JobsExplorerTableRowItemActionDelete from '@/components/JobsExplorerTableRowItemActions/JobsExplorerTableRowItemActionDelete';
@@ -16,37 +11,6 @@ import JobsExplorerTableRowItemActionNotify from '@/components/JobsExplorerTable
 /* * */
 
 export default function JobsExplorerTableRowItem({ jobData }) {
-  //
-
-  //
-  // A. Setup variables
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  //
-  // B. Fetch data
-
-  const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
-
-  //
-  // B. Handle actions
-
-  const handleDelete = async () => {
-    try {
-      setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'delete', method: 'DELETE' });
-      allJobsMutate();
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err);
-      allJobsMutate();
-      setIsLoading(false);
-    }
-  };
-
-  //
-  // C. Render components
-
   return (
     <div className={styles.container}>
       <JobsExplorerTableRowContainer className={styles.container}>
@@ -59,15 +23,28 @@ export default function JobsExplorerTableRowItem({ jobData }) {
         </div>
 
         <div className={styles.column}>{jobData._id}</div>
+
         <div className={styles.column}>{jobData.status}</div>
-        <div className={styles.column}>{jobData.date_created}</div>
-        <div className={styles.column}>{jobData.render_host}</div>
-        <div className={styles.column}>{jobData.render_path}</div>
+
+        <div className={styles.column}>{jobData.notification_count}</div>
+        <div className={styles.column}>{jobData.download_count}</div>
+
+        <div className={styles.column}>{jobData.date_registered}</div>
+        <div className={styles.column}>{jobData.date_processing}</div>
+        <div className={styles.column}>{jobData.date_ready}</div>
+        <div className={styles.column}>{jobData.date_notified}</div>
+        <div className={styles.column}>{jobData.date_downloaded}</div>
+        <div className={styles.column}>{jobData.date_expired}</div>
+
         <div className={styles.column}>{jobData.owner_name}</div>
         <div className={styles.column}>{jobData.owner_email}</div>
+        <div className={styles.column}>{jobData.owner_lang}</div>
+        <div className={styles.column}>{jobData.gdpr_consent}</div>
+
+        <div className={styles.column}>{jobData.render_host}</div>
+        <div className={styles.column}>{jobData.render_path}</div>
+        <div className={styles.column}>{jobData.render_format}</div>
       </JobsExplorerTableRowContainer>
     </div>
   );
-
-  //
 }

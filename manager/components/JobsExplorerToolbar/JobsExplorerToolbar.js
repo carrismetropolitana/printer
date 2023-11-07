@@ -1,11 +1,13 @@
 'use client';
 
+/* * */
+
 import useSWR from 'swr';
+import API from '@/services/API';
 import styles from './JobsExplorerToolbar.module.css';
 import { useMemo } from 'react';
 import { Button, Select } from '@mantine/core';
 import { useJobsExplorerContext } from 'contexts/JobsExplorerContext';
-import API from '@/services/API';
 
 /* * */
 
@@ -18,12 +20,12 @@ export default function JobsExplorerToolbar() {
   const jobsExplorerContext = useJobsExplorerContext();
 
   //
-  // A. Fetch data
+  // B. Fetch data
 
   const { data: allJobsData, mutate: allJobsMutate } = useSWR('/manager/api/jobs');
 
   //
-  // B. Transform data
+  // C. Transform data
 
   const availableStatuses = useMemo(() => {
     if (!allJobsData) return [];
@@ -31,7 +33,7 @@ export default function JobsExplorerToolbar() {
   }, [allJobsData]);
 
   //
-  // C. Handle actions
+  // D. Handle actions
 
   const handleNew = async () => {
     await API({ service: 'jobs', operation: 'create', method: 'GET' });
@@ -43,7 +45,7 @@ export default function JobsExplorerToolbar() {
   };
 
   //
-  // D. Render components
+  // E. Render components
 
   return (
     <div className={styles.container}>
