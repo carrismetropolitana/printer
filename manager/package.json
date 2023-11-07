@@ -1,6 +1,6 @@
 {
     "name": "@carrismetropolitana/printer-manager",
-    "version": "2023.11.07-2219",
+    "version": "2023.11.07-2326",
     "private": true,
     "scripts": {
         "dev": "next dev",
