@@ -1,6 +1,11 @@
 /* * */
 
+const fs = require('fs');
 const QUEUEDB = require('../services/QUEUEDB');
+
+/* * */
+
+const OUTPUT_DIRECTORY = '/app/jobsdata/pdfs';
 
 /* * */
 
@@ -13,28 +18,11 @@ module.exports = async (request, reply) => {
   // If no job is found with this id return 404 Not Found
   if (!foundRequestedJob) return reply.code(404).send({});
 
-  // Simplify the requested job object
-  const foundRequestedJobSimplified = { ...foundRequestedJob, owner_name: undefined, owner_email: undefined, gdpr_consent: undefined };
-
-  // If job is already expired (the file was deleted) return 410 Gone
-  if (foundRequestedJob.status === 'expired') return reply.code(410).send(foundRequestedJobSimplified);
-
-  // If job is already done (the job can no longe be updated) return 403 Forbidden
-  if (foundRequestedJob.status === 'ready' || foundRequestedJob.status === 'done') return reply.code(403).send(foundRequestedJobSimplified);
-
-  // Update the job with the new details
-  await QUEUEDB.Job.updateOne(
-    { _id: QUEUEDB.toObjectId(request.params.id) },
-    {
-      $set: {
-        status: 'downloaded',
-        download_count: foundRequestedJob.download_count++,
-        date_downloaded: [...foundRequestedJob.date_downloaded, new Date().toISOString()],
-      },
-    }
-  );
-
-  // Redirect client to the file?
+  // Read the file to the client
+  reply.header('Content-Type', 'application/pdf');
+  reply.header('Content-Disposition', `attachment; filename=${foundRequestedJob._id}`);
+  const fileStream = fs.createReadStream(`${OUTPUT_DIRECTORY}/${foundRequestedJob._id}.pdf`);
+  return reply.send(fileStream);
 
   //
 };
