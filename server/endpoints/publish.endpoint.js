@@ -38,9 +38,9 @@ module.exports = async (request, reply) => {
     date_downloaded: [],
     date_expired: null,
     // Job owner
+    owner_lang: request.body.owner_lang,
     owner_name: request.body.owner_name,
     owner_email: request.body.owner_email,
-    owner_lang: request.body.owner_lang,
     gdpr_consent: request.body.gdpr_consent,
     // Render info
     render_host: request.body.render_host,

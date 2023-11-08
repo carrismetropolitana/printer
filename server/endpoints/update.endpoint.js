@@ -20,13 +20,14 @@ module.exports = async (request, reply) => {
   if (foundRequestedJob.status === 'expired') return reply.code(410).send(foundRequestedJobSimplified);
 
   // If job is already done (the job can no longe be updated) return 403 Forbidden
-  if (foundRequestedJob.status === 'ready' || foundRequestedJob.status === 'done') return reply.code(403).send(foundRequestedJobSimplified);
+  if (foundRequestedJob.status === 'ready' || foundRequestedJob.status === 'downloaded') return reply.code(403).send(foundRequestedJobSimplified);
 
   // Update the job with the new details
   await QUEUEDB.Job.updateOne(
     { _id: QUEUEDB.toObjectId(request.params.id) },
     {
       $set: {
+        owner_lang: 'pt',
         owner_name: request.body.owner_name,
         owner_email: request.body.owner_email,
         gdpr_consent: request.body.gdpr_consent,
