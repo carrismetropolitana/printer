@@ -18,16 +18,17 @@ module.exports = async (request, reply) => {
   const requestHasValidEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(request.body.owner_email);
   if (!requestHasValidEmailAddress) return reply.code(400).send('Field "owner_email" is not a valid email address.');
 
-  // If the request render host is not allowed, send 400 Bad Request
+  // If the request render_host or render_path is not defined, send 400 Bad Request
+  if (!request.body.render_host) return reply.code(400).send('Field "render_host" is missing.');
+  if (!request.body.render_path) return reply.code(400).send('Field "render_path" is missing.');
+
+  // If the request render_host is not allowed, send 400 Bad Request
   const allowedPrintHosts = new Set(ALLOWED_RENDER_HOSTS);
   const requestHasAllowedPrintHost = allowedPrintHosts.has(request.body.render_host);
-  if (!requestHasAllowedPrintHost) return reply.code(400).send('Field "render_host" is not an allowed print host.');
-
-  // If the request print path is not defined, send 400 Bad Request
-  if (!request.body.render_path) return reply.code(400).send('Field "render_path" is not valid.');
+  if (!requestHasAllowedPrintHost) return reply.code(400).send('Field "render_host" is not an allowed host to be rendered.');
 
   // If everything checks out, create a new job in the queue
-  const newRequestedJob = await QUEUEDB.Job.insertOne({
+  const newRegisteredJob = await QUEUEDB.Job.insertOne({
     // Job status
     status: 'registered',
     // Timestamps
@@ -38,22 +39,22 @@ module.exports = async (request, reply) => {
     date_downloaded: [],
     date_expired: null,
     // Job owner
-    owner_lang: request.body.owner_lang,
-    owner_name: request.body.owner_name,
-    owner_email: request.body.owner_email,
-    gdpr_consent: request.body.gdpr_consent,
+    owner_lang: request.body.owner_lang || 'pt',
+    owner_name: request.body.owner_name || null,
+    owner_email: request.body.owner_email || null,
+    gdpr_consent: request.body.gdpr_consent || null,
     // Render info
     render_host: request.body.render_host,
     render_path: request.body.render_path,
     render_format: request.body.render_format || 'A4',
-    //
+    // Output info
     filename: request.body.filename,
     //
   });
 
   // Return the created job to the caller
-  if (newRequestedJob.insertedId) return reply.code(200).send(newRequestedJob);
-  else return reply.code(500).send('Could not connect to job queue.');
+  if (newRegisteredJob.insertedId) return reply.code(200).send(newRegisteredJob);
+  else return reply.code(500).send('Could not connect to Job Queue DB.');
 
   //
 };
