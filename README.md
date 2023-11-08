@@ -67,10 +67,24 @@ Append additional owner info to a waiting job.
 ```
 {
 
+    _id: "654acdcf816f9f9ba9ecd23a",
+
+    status: "downloaded",
+
+    date_registered: "2023-11-01T00:00:00.000Z",
+    date_processing: "2023-11-01T00:00:00.000Z",
+    date_ready: "2023-11-01T00:00:00.000Z",
+    date_notified: ["2023-11-01T00:00:00.000Z"],
+    date_downloaded: ["2023-11-01T00:00:00.000Z"],
+    date_expired: null,
+
     owner_lang: "pt",
-    owner_name: "André",
-    owner_email: "andre@exemplo.com",
-    gdpr_consent: true
+
+    render_host: "escolas.carrismetropolitana.pt",
+    render_path: "803239/render",
+    render_format: "A4",
+
+    filename: "Name of the downloaded file"
 
 }
 ```
@@ -84,8 +98,24 @@ Returns the current status of the requested job.
 ```
 {
 
-    id: "010001",
-    name: "R Carlos M. R. Francisco 229 (Escola Monte Novo)",
+    _id: "654acdcf816f9f9ba9ecd23a",
+
+    status: "ready",
+
+    date_registered: "2023-11-01T00:00:00.000Z",
+    date_processing: "2023-11-01T00:00:00.000Z",
+    date_ready: "2023-11-01T00:00:00.000Z",
+    date_notified: ["2023-11-01T00:00:00.000Z"],
+    date_downloaded: ["2023-11-01T00:00:00.000Z"],
+    date_expired: null,
+
+    owner_lang: "pt",
+
+    render_host: "escolas.carrismetropolitana.pt",
+    render_path: "803239/render",
+    render_format: "A4",
+
+    filename: "Name of the downloaded file"
 
 }
 ```
