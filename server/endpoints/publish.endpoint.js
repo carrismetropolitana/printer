@@ -33,6 +33,7 @@ module.exports = async (request, reply) => {
     status: 'registered',
     // Timestamps
     date_registered: new Date().toISOString(),
+    date_updated: null,
     date_processing: null,
     date_ready: null,
     date_notified: [],

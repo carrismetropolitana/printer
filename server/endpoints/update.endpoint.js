@@ -28,6 +28,7 @@ module.exports = async (request, reply) => {
     { _id: QUEUEDB.toObjectId(request.params.id) },
     {
       $set: {
+        date_updated: new Date().toISOString(),
         owner_lang: request.body.owner_lang || 'pt',
         owner_name: request.body.owner_name,
         owner_email: request.body.owner_email,
@@ -42,7 +43,7 @@ module.exports = async (request, reply) => {
   // Simplify the updated job object
   const foundUpdatedJobSimplified = { ...foundUpdatedJob, owner_name: undefined, owner_email: undefined, gdpr_consent: undefined };
 
-  // If the jobs is found, send the status object
+  // If the job is found send it to the client
   return reply.code(200).send(foundUpdatedJobSimplified);
 
   //

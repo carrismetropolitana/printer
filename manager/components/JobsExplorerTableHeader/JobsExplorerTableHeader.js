@@ -19,6 +19,7 @@ export default function JobsExplorerTableHeader() {
         <div className={styles.column}>download_count</div>
 
         <div className={styles.column}>date_registered</div>
+        <div className={styles.column}>date_updated</div>
         <div className={styles.column}>date_processing</div>
         <div className={styles.column}>date_ready</div>
         <div className={styles.column}>date_notified</div>
