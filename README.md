@@ -98,30 +98,18 @@ Downloads the rendered PDF file for the requested job.
 
 ### Job Status
 
-A job can have the following statuses
+A job can have the following statuses:
 
-#### `registered` : Job is waiting to be processed
-
-#### `paused` : Job was manually paused.
-
-`processing`
-Job is being rendered.
-
-`ready`
-Job has finished rendering.
-
-`error`
-Job has encountered an error.
-
-`downloaded`
-Job was downloaded.
-
-`expired`
-Job is expired.
-
-```
+| status     | description                                              |
+| ---------- | -------------------------------------------------------- |
+| registered | Job is waiting to be processed                           |
+| paused     | Job was manually paused                                  |
+| processing | Job is being rendered right now                          |
+| ready      | Job has finished rendering and is available for download |
+| error      | Job has encountered an error                             |
+| downloaded | Job has been downloaded at least once                    |
+| expired    | Job is expired and download is no longer possible        |
 
 # Contributing
 
 If you'd like to contribute new features or help fix any errors, please fork this repository and submit a pull request. We welcome contributions of all kinds, including bug fixes, documentation improvements, and new features.
-```
