@@ -100,15 +100,15 @@ Downloads the rendered PDF file for the requested job.
 
 A job can have the following statuses:
 
-| status     | description                                              |
-| ---------- | -------------------------------------------------------- |
-| registered | Job is waiting to be processed                           |
-| paused     | Job was manually paused                                  |
-| processing | Job is being rendered right now                          |
-| ready      | Job has finished rendering and is available for download |
-| error      | Job has encountered an error                             |
-| downloaded | Job has been downloaded at least once                    |
-| expired    | Job is expired and download is no longer possible        |
+| status       | description                                               |
+| ------------ | --------------------------------------------------------- |
+| `registered` | Job is waiting to be processed.                           |
+| `paused`     | Job was manually paused.                                  |
+| `processing` | Job is being rendered right now.                          |
+| `ready`      | Job has finished rendering and is available for download. |
+| `error`      | Job has encountered an error.                             |
+| `downloaded` | Job has been downloaded at least once.                    |
+| `expired`    | Job is expired and download is no longer possible.        |
 
 # Contributing
 
