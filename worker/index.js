@@ -7,7 +7,7 @@ const timeCalc = require('./services/timeCalc');
 
 /* * */
 
-const RUN_INTERVAL = 30000; // seconds
+const RUN_INTERVAL = 5000; // milliseconds
 const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
 
 /* * */
