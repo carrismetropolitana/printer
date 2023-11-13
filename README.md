@@ -25,6 +25,7 @@ Publish a new job to the print queue.
 
 
     // optional fields
+    render_format: 'A4',
     owner_lang: "pt",
     owner_name: "Name of the User",
     owner_email: "user_email@example.com",
