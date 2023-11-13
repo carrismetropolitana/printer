@@ -1,14 +1,20 @@
 'use client';
 
+/* * */
+
 import { SWRConfig } from 'swr';
 import { MantineProvider } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
+import { Notifications } from '@mantine/notifications';
+
+/* * */
 
 export default function Providers({ children, session }) {
   //
 
-  // SWR CONFIGURATION
+  //
+  // A. Setup SWR
+
   const swrOptions = {
     refreshInterval: 250,
     fetcher: async (...args) => {
@@ -24,6 +30,9 @@ export default function Providers({ children, session }) {
     },
   };
 
+  //
+  // B. Render components
+
   return (
     <SWRConfig value={swrOptions}>
       <MantineProvider defaultColorScheme="auto">
@@ -32,4 +41,6 @@ export default function Providers({ children, session }) {
       </MantineProvider>
     </SWRConfig>
   );
+
+  //
 }
