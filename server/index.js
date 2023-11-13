@@ -25,7 +25,7 @@ fastify.get('/download/:id', downloadEndpoint);
 fastify.route({
   method: 'OPTIONS',
   url: '/*',
-  handler: async (request, reply) => reply.code(204).header('Content-Length', '0').header('Access-Control-Allow-Methods', 'GET POST').send(),
+  handler: async (request, reply) => reply.code(204).header('Content-Length', '0').header('Access-Control-Allow-Methods', 'GET, POST').send(),
 });
 
 //
