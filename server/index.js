@@ -20,15 +20,6 @@ fastify.get('/status/:id', statusEndpoint);
 fastify.get('/download/:id', downloadEndpoint);
 
 //
-// SETUP HTTP OPTIONS
-
-// fastify.route({
-//   method: 'OPTIONS',
-//   url: '/*',
-//   handler: async (request, reply) => reply.code(204).header('Content-Length', '0').header('Access-Control-Allow-Methods', 'GET, POST').send(),
-// });
-
-//
 // START FASTIFY SERVER
 
 fastify.listen({ port: 5050, host: '0.0.0.0' }, async (err, address) => {
