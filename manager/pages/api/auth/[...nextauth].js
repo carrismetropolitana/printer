@@ -51,7 +51,7 @@ export const authOptions = {
       try {
         if (token.user) {
           await QUEUEDB.connect();
-          const foundUser = await QUEUEDB.User.findOneAndUpdate({ _id: token.user.id }, { last_active: new Date() }, { new: true });
+          const foundUser = await QUEUEDB.User.findOneAndUpdate({ _id: token.user.id }, { $set: { last_active: new Date() } }, { new: true });
           if (foundUser) session.user = foundUser;
           return session;
         }

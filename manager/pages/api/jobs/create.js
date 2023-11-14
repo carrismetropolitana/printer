@@ -2,6 +2,8 @@
 
 import delay from '@/services/delay';
 import QUEUEDB from '@/services/QUEUEDB';
+import { authOptions } from 'pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth/next';
 
 /* * */
 
@@ -15,6 +17,17 @@ export default async function handler(req, res) {
   if (req.method != 'POST') {
     await res.setHeader('Allow', ['POST']);
     return await res.status(405).json({ message: `Method ${req.method} Not Allowed.` });
+  }
+
+  // 1.
+  // Check for correct Authentication and valid Permissions
+
+  try {
+    const session = await getServerSession(req, res, authOptions);
+    if (!session) throw new Error('You must be logged in to access this feature.');
+  } catch (err) {
+    console.log(err);
+    return await res.status(401).json({ message: err.message || 'Could not verify Authentication.' });
   }
 
   // 2.
