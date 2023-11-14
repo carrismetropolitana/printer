@@ -1,6 +1,6 @@
 /* * */
 
-module.exports.subject = () => 'O seu PDF está pronto!';
+module.exports.subject = () => 'O seu livro está pronto!';
 
 /* * */
 

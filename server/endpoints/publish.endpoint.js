@@ -4,7 +4,7 @@ const QUEUEDB = require('../services/QUEUEDB');
 
 /* * */
 
-const ALLOWED_RENDER_HOSTS = ['www.carrismetropolitana.pt', 'beta.carrismetropolitana.pt', 'escolas.carrismetropolitana.pt'];
+const ALLOWED_RENDER_HOSTS = ['www.carrismetropolitana.pt', 'beta.carrismetropolitana.pt', 'escolas.carrismetropolitana.pt', 'folhetos.carrismetropolitana.pt'];
 
 /* * */
 
