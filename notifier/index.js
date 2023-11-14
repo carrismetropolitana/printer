@@ -3,7 +3,7 @@
 const QUEUEDB = require('./services/QUEUEDB');
 const SMTPSERVICE = require('./services/SMTPSERVICE');
 const timeCalc = require('./services/timeCalc');
-const ptTemplate = require('./templates/pt');
+const EmailTemplatePt = require('./templates/pt');
 
 /* * */
 
@@ -52,8 +52,8 @@ const RUN_INTERVAL = 5000; // milliseconds
         await SMTPSERVICE.transport.sendMail({
           from: `"Carris Metropolitana" <contact@joao.earth>`,
           to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
-          subject: ptTemplate.subject(),
-          html: ptTemplate.body({ name: jobData.owner_name, filename: jobData.filename, download_url: `https://printer.carrismetropolitana.pt/download/${jobData._id}` }),
+          subject: EmailTemplatePt.subject(),
+          html: EmailTemplatePt.body({ name: jobData.owner_name, filename: jobData.filename, download_url: `https://printer.carrismetropolitana.pt/download/${jobData._id}` }),
         });
 
         // Update status of this job
