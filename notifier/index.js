@@ -53,7 +53,12 @@ const RUN_INTERVAL = 5000; // milliseconds
           from: `"Carris Metropolitana" <contact@joao.earth>`,
           to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
           subject: EmailTemplatePt.subject(),
-          html: EmailTemplatePt.body({ name: jobData.owner_name, filename: jobData.filename, download_url: `https://printer.carrismetropolitana.pt/download/${jobData._id}` }),
+          html: EmailTemplatePt.body({
+            _id: jobData._id,
+            filename: jobData.filename,
+            owner_name: jobData.owner_name,
+            download_url: `https://printer.carrismetropolitana.pt/download/${jobData._id}`,
+          }),
         });
 
         // Update status of this job

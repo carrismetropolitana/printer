@@ -4,7 +4,7 @@ module.exports.subject = () => 'O seu PDF está pronto!';
 
 /* * */
 
-module.exports.body = ({ owner_name, filename, download_url }) => {
+module.exports.body = ({ _id, owner_name, filename, download_url }) => {
   return `
         <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -264,7 +264,7 @@ module.exports.body = ({ owner_name, filename, download_url }) => {
                                     <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
         
                                         <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong>Olá ${owner_name}!</strong></span></p>
+                                        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong>Olá${owner_name.length ? ` ${owner_name}` : ''}!</strong></span></p>
                                         </div>
         
                                     </td>
@@ -314,6 +314,20 @@ module.exports.body = ({ owner_name, filename, download_url }) => {
         
                                         <div style="font-size: 14px; line-height: 0%; text-align: left; word-wrap: break-word;">
                                         <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 0px; color: #969696;">${filename}</span></p>
+                                        </div>
+        
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+        
+                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Lato',sans-serif;" align="left">
+        
+                                        <div style="font-size: 14px; line-height: 0%; text-align: left; word-wrap: break-word;">
+                                        <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 0px; color: #969696;">${_id}</span></p>
                                         </div>
         
                                     </td>
