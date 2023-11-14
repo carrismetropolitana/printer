@@ -1,3 +1,6 @@
+/* * */
+/* CONTAINER */
+
 .container {
   display: flex;
   width: 100%;
@@ -8,7 +11,18 @@
   color: var(--reference-1);
 }
 
+/* * */
+/* COLUMN */
+
 .column {
   padding: 10px;
   background-color: var(--color-gray-1);
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable:hover {
+  background-color: var(--color-gray-2);
 }

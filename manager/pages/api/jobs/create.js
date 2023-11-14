@@ -46,12 +46,13 @@ export default async function handler(req, res) {
   try {
     const newDoc = await QUEUEDB.Job.insertOne({
       owner_name: 'Teste',
-      owner_email: 'test@email.com',
+      owner_email: 'new@email.com',
       owner_lang: 'pt',
       gdpr_consent: true,
-      render_host: 'escolas.carrismetropolitana.pt',
-      render_path: '803239/render',
-      status: 'registered',
+      render_host: 'folhetos.carrismetropolitana.pt',
+      render_path: 'something_else',
+      status: 'ready',
+      date_registered: new Date().toISOString(),
     });
     return await res.status(200).send(newDoc);
   } catch (err) {
