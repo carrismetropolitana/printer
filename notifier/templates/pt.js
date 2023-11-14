@@ -34,8 +34,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                 .u-row .u-col {
                 vertical-align: top;
                 }
-                .u-row .u-col-33p33 {
-                width: 166.65px !important;
+                .u-row .u-col-25 {
+                width: 125px !important;
                 }
                 .u-row .u-col-100 {
                 width: 500px !important;
@@ -66,8 +66,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                 min-width: 0 !important;
                 display: table-cell !important;
                 }
-                .no-stack .u-col-33p33 {
-                width: 33.33% !important;
+                .no-stack .u-col-25 {
+                width: 25% !important;
                 }
             }
             
@@ -112,9 +112,6 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
             }
             
             @media (max-width: 480px) {
-                #u_column_11 .v-col-padding {
-                padding: 20px 15px !important;
-                }
                 #u_column_13 .v-col-padding {
                 padding: 15px 10px !important;
                 }
@@ -148,14 +145,14 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
         
         </head>
         
-        <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #f9f9f9;color: #000000">
+        <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;color: #000000">
             <!--[if IE]><div class="ie-container"><![endif]-->
             <!--[if mso]><div class="mso-container"><![endif]-->
-            <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%" cellpadding="0" cellspacing="0">
+            <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ffffff;width:100%" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr style="vertical-align: top">
                 <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #f9f9f9;"><![endif]-->
+                    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #ffffff;"><![endif]-->
         
         
         
@@ -164,50 +161,9 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                         <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
                         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
         
-                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="width: 500px;padding: 10px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                        <div id="u_column_11" class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
-                            <div style="height: 100%;width: 100% !important;">
-                            <!--[if (!mso)&(!IE)]><!-->
-                            <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 10px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                <!--<![endif]-->
-        
-                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                <tbody>
-                                    <tr>
-                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Lato',sans-serif;" align="left">
-        
-                                        <div style="font-size: 14px; line-height: 100%; text-align: left; word-wrap: break-word;">
-                                        <p style="line-height: 100%; text-align: center;"><span style="line-height: 12px; font-size: 12px; color: #f9f9f9;">O seu livro de horário está pronto!</span></p>
-                                        </div>
-        
-                                    </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-        
-                                <!--[if (!mso)&(!IE)]><!-->
-                            </div>
-                            <!--<![endif]-->
-                            </div>
-                        </div>
-                        <!--[if (mso)|(IE)]></td><![endif]-->
-                        <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                        </div>
-                    </div>
-                    </div>
-        
-        
-        
-        
-        
-                    <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                    <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                        <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
-        
-                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="background-color: #ffffff;width: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="width: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
                         <div class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
-                            <div style="background-color: #ffffff;height: 100%;width: 100% !important;">
+                            <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
                                 <!--<![endif]-->
@@ -253,51 +209,9 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                         <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
                         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
         
-                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="background-color: #ffffff;width: 500px;padding: 5px 20px;border-top: 1px solid #e6e6e6;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 1px solid #e6e6e6;" valign="top"><![endif]-->
-                        <div class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
-                            <div style="background-color: #ffffff;height: 100%;width: 100% !important;">
-                            <!--[if (!mso)&(!IE)]><!-->
-                            <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 5px 20px;border-top: 1px solid #e6e6e6;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 1px solid #e6e6e6;">
-                                <!--<![endif]-->
-        
-                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                <tbody>
-                                    <tr>
-                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
-        
-                                        <div style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-family: Lato, sans-serif; font-size: 18px; line-height: 25.2px;"><span style="line-height: 25.2px; font-size: 18px;"><strong>O SEU LIVRO DE HORÁRIOS ESTÁ PRONTO</strong></span></span>
-                                        </p>
-                                        </div>
-        
-                                    </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-        
-                                <!--[if (!mso)&(!IE)]><!-->
-                            </div>
-                            <!--<![endif]-->
-                            </div>
-                        </div>
-                        <!--[if (mso)|(IE)]></td><![endif]-->
-                        <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                        </div>
-                    </div>
-                    </div>
-        
-        
-        
-        
-        
-                    <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                    <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                        <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
-        
-                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="background-color: #ffffff;width: 500px;padding: 15px 20px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="width: 500px;padding: 15px 20px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
                         <div id="u_column_13" class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
-                            <div style="background-color: #ffffff;height: 100%;width: 100% !important;">
+                            <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 15px 20px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
                                 <!--<![endif]-->
@@ -322,7 +236,35 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                     <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
         
                                         <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 18px; line-height: 25.2px;">O seu livro de horários personalizado já está pronto. Pode fazer o download clicando no botão em baixo. O livro ficará disponível para download nos próximos 7 dias.</span></p>
+                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 18px; line-height: 25.2px;">O seu livro de horários personalizado já está pronto.</span></p>
+                                        </div>
+        
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+        
+                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
+        
+                                        <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
+                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 18px; line-height: 25.2px;">Clique no botão abaixo para descarregar o livro em formato PDF.</span></p>
+                                        </div>
+        
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+        
+                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
+        
+                                        <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
+                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 14px; line-height: 19.6px;"> O seu livro ficará disponível para download nos próximos 7 dias.</span></p>
                                         </div>
         
                                     </td>
@@ -339,7 +281,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <div align="left">
                                         <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${download_url}" style="height:52px; v-text-anchor:middle; width:440px;" arcsize="19%"  stroke="f" fillcolor="#ffdd01"><w:anchorlock/><center style="color:#000000;"><![endif]-->
                                         <a href="${download_url}" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #ffdd01; border-radius: 10px;-webkit-border-radius: 10px; -moz-border-radius: 10px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
-                                            <span class="v-padding" style="display:block;padding:15px 20px;line-height:120%;"><span style="font-size: 18px; line-height: 21.6px;"><strong><span style="line-height: 21.6px; font-size: 18px;">DOWNLOAD PDF</span></strong>
+                                            <span class="v-padding" style="display:block;padding:15px 20px;line-height:120%;"><span style="font-size: 18px; line-height: 21.6px;"><strong><span style="line-height: 21.6px; font-size: 18px;">DESCARREGAR LIVRO</span></strong>
                                             </span>
                                             </span>
                                         </a>
@@ -455,8 +397,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                         <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
                         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
         
-                        <!--[if (mso)|(IE)]><td align="center" width="166" class="v-col-padding" style="width: 166px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                        <div id="u_column_8" class="u-col u-col-33p33" style="max-width: 320px;min-width: 166.67px;display: table-cell;vertical-align: top;">
+                        <!--[if (mso)|(IE)]><td align="center" width="125" class="v-col-padding" style="width: 125px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <div id="u_column_8" class="u-col u-col-25" style="max-width: 320px;min-width: 125px;display: table-cell;vertical-align: top;">
                             <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
@@ -471,8 +413,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.facebook.com/carrismetropolitana" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-facebook.png" alt="Facebook da Carris Metropolitana" title="Facebook da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
-                                                width="166.67" />
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-facebook.png" alt="Facebook da Carris Metropolitana" title="Facebook da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 125px;"
+                                                width="125" />
                                             </a>
                                             </td>
                                         </tr>
@@ -489,8 +431,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                             </div>
                         </div>
                         <!--[if (mso)|(IE)]></td><![endif]-->
-                        <!--[if (mso)|(IE)]><td align="center" width="166" class="v-col-padding" style="width: 166px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                        <div class="u-col u-col-33p33" style="max-width: 320px;min-width: 166.67px;display: table-cell;vertical-align: top;">
+                        <!--[if (mso)|(IE)]><td align="center" width="125" class="v-col-padding" style="width: 125px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <div class="u-col u-col-25" style="max-width: 320px;min-width: 125px;display: table-cell;vertical-align: top;">
                             <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
@@ -505,8 +447,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.instagram.com/carrismetropolitana/" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-instagram.png" alt="Instagram da Carris Metropolitana" title="Instagram da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
-                                                width="166.67" />
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-instagram.png" alt="Instagram da Carris Metropolitana" title="Instagram da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 125px;"
+                                                width="125" />
                                             </a>
                                             </td>
                                         </tr>
@@ -523,8 +465,8 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                             </div>
                         </div>
                         <!--[if (mso)|(IE)]></td><![endif]-->
-                        <!--[if (mso)|(IE)]><td align="center" width="166" class="v-col-padding" style="width: 166px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                        <div class="u-col u-col-33p33" style="max-width: 320px;min-width: 166.67px;display: table-cell;vertical-align: top;">
+                        <!--[if (mso)|(IE)]><td align="center" width="125" class="v-col-padding" style="width: 125px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <div class="u-col u-col-25" style="max-width: 320px;min-width: 125px;display: table-cell;vertical-align: top;">
                             <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
@@ -539,8 +481,42 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.whatsapp.com/channel/0029Va9z9d2JP2184daqbX0K" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-whatsapp.png" alt="LinkedIn da Carris Metropolitana" title="LinkedIn da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
-                                                width="166.67" />
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-whatsapp.png" alt="LinkedIn da Carris Metropolitana" title="LinkedIn da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 125px;"
+                                                width="125" />
+                                            </a>
+                                            </td>
+                                        </tr>
+                                        </table>
+        
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+        
+                                <!--[if (!mso)&(!IE)]><!-->
+                            </div>
+                            <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="125" class="v-col-padding" style="width: 125px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+                        <div class="u-col u-col-25" style="max-width: 320px;min-width: 125px;display: table-cell;vertical-align: top;">
+                            <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                            <!--[if (!mso)&(!IE)]><!-->
+                            <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                <!--<![endif]-->
+        
+                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Lato',sans-serif;" align="left">
+        
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td style="padding-right: 0px;padding-left: 0px;" align="center">
+                                            <a href="https://www.whatsapp.com/channel/0029Va9z9d2JP2184daqbX0K" target="_blank">
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-twitter.png" alt="LinkedIn da Carris Metropolitana" title="LinkedIn da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 125px;"
+                                                width="125" />
                                             </a>
                                             </td>
                                         </tr>
