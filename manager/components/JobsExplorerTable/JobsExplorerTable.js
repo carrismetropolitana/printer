@@ -23,7 +23,7 @@ export default function JobsExplorerTable() {
   //
   // B. Fetch data
 
-  const { data: allJobsData } = useSWR('/manager/api/jobs');
+  const { data: allJobsData } = useSWR('/api/jobs');
 
   //
   // C. Transform data

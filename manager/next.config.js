@@ -3,5 +3,4 @@
 module.exports = {
   output: 'standalone',
   reactStrictMode: true,
-  basePath: '/manager',
 };

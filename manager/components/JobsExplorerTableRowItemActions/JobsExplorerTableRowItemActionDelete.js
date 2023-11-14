@@ -21,7 +21,7 @@ export default function JobsExplorerTableRowItemActionDelete({ jobData }) {
   //
   // B. Fetch data
 
-  const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
+  const { mutate: allJobsMutate } = useSWR('/api/jobs');
 
   //
   // B. Handle actions

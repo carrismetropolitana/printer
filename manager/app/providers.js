@@ -3,6 +3,7 @@
 /* * */
 
 import { SWRConfig } from 'swr';
+import { SessionProvider } from 'next-auth/react';
 import { MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
@@ -34,12 +35,14 @@ export default function Providers({ children, session }) {
   // B. Render components
 
   return (
-    <SWRConfig value={swrOptions}>
-      <MantineProvider defaultColorScheme="auto">
-        <Notifications />
-        <ModalsProvider>{children}</ModalsProvider>
-      </MantineProvider>
-    </SWRConfig>
+    <SessionProvider session={session} refetchInterval={15}>
+      <SWRConfig value={swrOptions}>
+        <MantineProvider defaultColorScheme="auto">
+          <Notifications />
+          <ModalsProvider>{children}</ModalsProvider>
+        </MantineProvider>
+      </SWRConfig>
+    </SessionProvider>
   );
 
   //

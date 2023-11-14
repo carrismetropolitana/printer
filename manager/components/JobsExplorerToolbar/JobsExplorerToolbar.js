@@ -8,6 +8,7 @@ import { useMemo } from 'react';
 import { Select } from '@mantine/core';
 import { useJobsExplorerContext } from 'contexts/JobsExplorerContext';
 import JobsExplorerCreate from '@/components/JobsExplorerCreate/JobsExplorerCreate';
+import LogoutButton from '@/components/LogoutButton/LogoutButton';
 
 /* * */
 
@@ -22,7 +23,7 @@ export default function JobsExplorerToolbar() {
   //
   // B. Fetch data
 
-  const { data: allJobsData } = useSWR('/manager/api/jobs');
+  const { data: allJobsData } = useSWR('/api/jobs');
 
   //
   // C. Transform data
@@ -46,6 +47,7 @@ export default function JobsExplorerToolbar() {
     <div className={styles.container}>
       <Select data={availableStatuses} placeholder="Status" onChange={handleChangeSelectedStatus} clearable />
       <JobsExplorerCreate />
+      <LogoutButton />
     </div>
   );
 

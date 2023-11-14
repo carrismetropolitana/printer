@@ -21,7 +21,7 @@ export default function JobsExplorerTableRowItemActionNotify({ jobData }) {
   //
   // B. Fetch data
 
-  const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
+  const { mutate: allJobsMutate } = useSWR('/api/jobs');
 
   //
   // C. Handle actions

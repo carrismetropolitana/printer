@@ -7,6 +7,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 const mongoClient = new MongoClient(process.env.MONGODB_CONNECTION_STRING || 'mongodb://mongodbuser:mongodbpassword@queuedb?authSource=admin', { minPoolSize: 2, maxPoolSize: 200, serverSelectionTimeoutMS: 5000 });
 const mongoDatabase = mongoClient.db('queuedb');
 const Job = mongoDatabase.collection('jobs');
+const User = mongoDatabase.collection('user');
 
 /* * */
 
@@ -35,6 +36,7 @@ async function disconnect() {
 
 const QUEUEDB = {
   Job,
+  User,
   toObjectId,
   connect,
   disconnect,

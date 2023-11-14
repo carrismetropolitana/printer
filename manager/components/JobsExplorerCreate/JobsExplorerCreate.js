@@ -13,13 +13,13 @@ export default function JobsExplorerCreate() {
 
   const [opened, { open, close }] = useDisclosure(false);
 
-  const { mutate: allJobsMutate } = useSWR('/manager/api/jobs');
+  const { mutate: allJobsMutate } = useSWR('/api/jobs');
 
   //
   // D. Handle actions
 
   const handleNew = async () => {
-    let endpointUrl = '/manager/api/jobs/create';
+    let endpointUrl = '/api/jobs/create';
     if (process.NODE_ENV === 'production') endpointUrl = '/publish';
 
     await fetch(endpointUrl, {
