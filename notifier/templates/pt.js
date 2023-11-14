@@ -112,6 +112,9 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
             }
             
             @media (max-width: 480px) {
+                #u_column_11 .v-col-padding {
+                padding: 20px 15px !important;
+                }
                 #u_column_13 .v-col-padding {
                 padding: 15px 10px !important;
                 }
@@ -130,7 +133,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                 #u_column_8 .v-col-padding {
                 padding: 0px !important;
                 }
-                #u_column_11 .v-col-padding {
+                #u_column_14 .v-col-padding {
                 padding: 20px 15px !important;
                 }
             }
@@ -153,6 +156,47 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                 <tr style="vertical-align: top">
                 <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
                     <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #f9f9f9;"><![endif]-->
+        
+        
+        
+                    <div class="u-row-container" style="padding: 0px;background-color: transparent">
+                    <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                        <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
+        
+                        <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="width: 500px;padding: 10px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                        <div id="u_column_11" class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
+                            <div style="height: 100%;width: 100% !important;">
+                            <!--[if (!mso)&(!IE)]><!-->
+                            <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 10px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                                <!--<![endif]-->
+        
+                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                    <tr>
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Lato',sans-serif;" align="left">
+        
+                                        <div style="font-size: 14px; line-height: 100%; text-align: left; word-wrap: break-word;">
+                                        <p style="line-height: 100%; text-align: center;"><span style="line-height: 12px; font-size: 12px; color: #f9f9f9;">O seu livro de horário está pronto!</span></p>
+                                        </div>
+        
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+        
+                                <!--[if (!mso)&(!IE)]><!-->
+                            </div>
+                            <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td><![endif]-->
+                        <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                        </div>
+                    </div>
+                    </div>
+        
+        
         
         
         
@@ -278,7 +322,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                     <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
         
                                         <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 18px; line-height: 25.2px;">O seu livro de horários personalizado já está pronto. Pode fazer o download clicando no botão em baixo.</span></p>
+                                        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 18px; line-height: 25.2px;">O seu livro de horários personalizado já está pronto. Pode fazer o download clicando no botão em baixo. O livro ficará disponível para download nos próximos 7 dias.</span></p>
                                         </div>
         
                                     </td>
@@ -289,12 +333,12 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                 <table id="u_content_button_1" style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                 <tbody>
                                     <tr>
-                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px;font-family:'Lato',sans-serif;" align="left">
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px 25px;font-family:'Lato',sans-serif;" align="left">
         
                                         <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
                                         <div align="left">
-                                        <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${download_url}" style="height:52px; v-text-anchor:middle; width:440px;" arcsize="7.5%"  stroke="f" fillcolor="#ffdd01"><w:anchorlock/><center style="color:#000000;"><![endif]-->
-                                        <a href="${download_url}" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #ffdd01; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
+                                        <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${download_url}" style="height:52px; v-text-anchor:middle; width:440px;" arcsize="19%"  stroke="f" fillcolor="#ffdd01"><w:anchorlock/><center style="color:#000000;"><![endif]-->
+                                        <a href="${download_url}" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #ffdd01; border-radius: 10px;-webkit-border-radius: 10px; -moz-border-radius: 10px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
                                             <span class="v-padding" style="display:block;padding:15px 20px;line-height:120%;"><span style="font-size: 18px; line-height: 21.6px;"><strong><span style="line-height: 21.6px; font-size: 18px;">DOWNLOAD PDF</span></strong>
                                             </span>
                                             </span>
@@ -310,10 +354,10 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                 <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                 <tbody>
                                     <tr>
-                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Lato',sans-serif;" align="left">
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
         
                                         <div style="font-size: 14px; line-height: 0%; text-align: left; word-wrap: break-word;">
-                                        <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 0px; color: #969696;">${filename}</span></p>
+                                        <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 10px; line-height: 0px; color: #969696;">${filename}</span></p>
                                         </div>
         
                                     </td>
@@ -324,10 +368,10 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                 <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                 <tbody>
                                     <tr>
-                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Lato',sans-serif;" align="left">
+                                    <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 15px;font-family:'Lato',sans-serif;" align="left">
         
                                         <div style="font-size: 14px; line-height: 0%; text-align: left; word-wrap: break-word;">
-                                        <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 0px; color: #969696;">${_id}</span></p>
+                                        <p style="font-size: 14px; line-height: 0%; text-align: center;"><span style="font-family: Lato, sans-serif; font-size: 10px; line-height: 0px; color: #969696;">${_id}</span></p>
                                         </div>
         
                                     </td>
@@ -528,7 +572,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
         
                         <!--[if (mso)|(IE)]><td align="center" width="500" class="v-col-padding" style="width: 500px;padding: 20px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                        <div id="u_column_11" class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
+                        <div id="u_column_14" class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
                             <div style="height: 100%;width: 100% !important;">
                             <!--[if (!mso)&(!IE)]><!-->
                             <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 20px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
