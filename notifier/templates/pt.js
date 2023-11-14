@@ -221,7 +221,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.carrismetropolitana.pt" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-header.png" alt="Logótipo da SPG" title="Logótipo da SPG" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 500px;"
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-header.png" alt="Logótipo da Carris Metropolitana" title="Logótipo da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 500px;"
                                                 width="500" />
                                             </a>
                                             </td>
@@ -471,7 +471,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.facebook.com/carrismetropolitana" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-facebook.png" alt="Facebook da SPG" title="Facebook da SPG" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-facebook.png" alt="Facebook da Carris Metropolitana" title="Facebook da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
                                                 width="166.67" />
                                             </a>
                                             </td>
@@ -505,7 +505,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.instagram.com/carrismetropolitana/" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-instagram.png" alt="Instagram da SPG" title="Instagram da SPG" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-instagram.png" alt="Instagram da Carris Metropolitana" title="Instagram da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
                                                 width="166.67" />
                                             </a>
                                             </td>
@@ -539,7 +539,7 @@ module.exports.body = ({ _id, owner_name, filename, download_url }) => {
                                         <tr>
                                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                             <a href="https://www.whatsapp.com/channel/0029Va9z9d2JP2184daqbX0K" target="_blank">
-                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-whatsapp.png" alt="LinkedIn da SPG" title="LinkedIn da SPG" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
+                                                <img align="center" border="0" src="https://storage.carrismetropolitana.pt/static/assets/email/cm-email-footer-whatsapp.png" alt="LinkedIn da Carris Metropolitana" title="LinkedIn da Carris Metropolitana" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 166.67px;"
                                                 width="166.67" />
                                             </a>
                                             </td>
