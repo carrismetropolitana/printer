@@ -15,7 +15,7 @@ module.exports = async (request, reply) => {
   if (!request.body) return reply.code(400).send('Request body in empty on non-existent.');
 
   // If the request has the field 'owner_email' and it is an invalid email, send 400 Bad Request
-  if (request.body.owner_email.length) {
+  if (request.body.owner_email?.length) {
     const requestHasValidEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(request.body.owner_email);
     if (!requestHasValidEmailAddress) return reply.code(400).send('Field "owner_email" is not a valid email address.');
   }
