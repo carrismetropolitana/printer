@@ -50,7 +50,7 @@ const RUN_INTERVAL = 5000; // milliseconds
 
         // Send an email to the owner
         await SMTPSERVICE.transport.sendMail({
-          from: `"Carris Metropolitana" <contact@joao.earth>`,
+          from: '"Carris Metropolitana" <no-reply@carrismetropolitana.pt>',
           to: `"${jobData.owner_name || ''}" <${jobData.owner_email}>`,
           subject: EmailTemplatePt.subject(),
           html: EmailTemplatePt.body({
