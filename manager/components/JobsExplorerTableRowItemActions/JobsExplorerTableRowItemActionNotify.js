@@ -30,7 +30,7 @@ export default function JobsExplorerTableRowItemActionNotify({ jobData }) {
     if (jobData.status !== 'ready') return;
     try {
       setIsLoading(true);
-      await API({ service: 'jobs', resourceId: jobData._id, operation: 'delete', method: 'DELETE' });
+      await API({ service: 'jobs', resourceId: jobData._id, operation: 'notify', method: 'GET' });
       allJobsMutate();
       setIsLoading(false);
     } catch (err) {
