@@ -14,9 +14,11 @@ module.exports = async (request, reply) => {
   // If the request has no body, send 400 Bad Request
   if (!request.body) return reply.code(400).send('Request body in empty on non-existent.');
 
-  // If the request has an invalid email, send 400 Bad Request
-  const requestHasValidEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(request.body.owner_email);
-  if (!requestHasValidEmailAddress) return reply.code(400).send('Field "owner_email" is not a valid email address.');
+  // If the request has the field 'owner_email' and it is an invalid email, send 400 Bad Request
+  if (request.body.owner_email.length) {
+    const requestHasValidEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(request.body.owner_email);
+    if (!requestHasValidEmailAddress) return reply.code(400).send('Field "owner_email" is not a valid email address.');
+  }
 
   // If the request render_host or render_path is not defined, send 400 Bad Request
   if (!request.body.render_host) return reply.code(400).send('Field "render_host" is missing.');
