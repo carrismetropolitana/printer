@@ -52,7 +52,7 @@ export default function JobsExplorerTable() {
   //
   // D. Handle search
 
-  const allJobsFilteredForSearch = useSearch(jobsExplorerContext.state.search_query, allJobsFilteredForRenderHost, { keys: ['owner_name', 'owner_email', 'render_path', 'filename'] });
+  const allJobsFilteredForSearch = useSearch(jobsExplorerContext.state.search_query, allJobsFilteredForRenderHost, { keys: ['_id', 'owner_name', 'owner_email', 'render_path', 'filename'] });
 
   //
   // E. Render components
