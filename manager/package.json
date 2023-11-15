@@ -1,6 +1,6 @@
 {
     "name": "@carrismetropolitana/printer-manager",
-    "version": "2023.11.08-0105",
+    "version": "2023.11.15-1937",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -23,7 +23,7 @@
         "mongodb": "6.2.0",
         "next": "14.0.2",
         "next-auth": "4.24.5",
-        "next-intl": "3.0.1",
+        "next-intl": "3.0.3",
         "nodemailer": "6.9.7",
         "react": "18.2.0",
         "react-dom": "18.2.0",
