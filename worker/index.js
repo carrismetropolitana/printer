@@ -61,7 +61,9 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
         await QUEUEDB.Job.updateOne({ _id: newJob._id }, { $set: { status: 'processing', date_processing: new Date().toISOString() } });
 
         // Build the complete URL to be rendered
-        const completeUrl = `https://${newJob.render_host}/${newJob.render_path}`;
+        let completeUrl;
+        if (newJob.render_path.startsWith('/')) completeUrl = `https://${newJob.render_host}${newJob.render_path}`;
+        else completeUrl = `https://${newJob.render_host}/${newJob.render_path}`;
 
         // Navigate to the URL
         await browserPage.goto(completeUrl, { waitUntil: 'networkidle0', timeout: 10000 });
