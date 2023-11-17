@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   try {
     const session = await getServerSession(req, res, authOptions);
-    if (!session) throw new Error('You must be logged in to access this feature.');
+    if (!session?.user?.email?.length) throw new Error('You must be logged in to access this feature.');
   } catch (err) {
     console.log(err);
     return await res.status(401).json({ message: err.message || 'Could not verify Authentication.' });

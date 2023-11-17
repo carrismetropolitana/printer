@@ -43,10 +43,10 @@ export default function JobsExplorerTableRowItem({ jobData }) {
         <div className={styles.column}>{jobData.gdpr_consent || '(empty)'}</div>
 
         <div className={styles.column}>{jobData.render_host || '(empty)'}</div>
-        <div className={styles.column}>{jobData.render_path.substring(0, 30) || '(empty)'}</div>
+        <div className={styles.column}>{jobData.render_path?.substring(0, 30) || '(empty)'}</div>
         <div className={styles.column}>{jobData.render_format || '(empty)'}</div>
 
-        <div className={styles.column}>{jobData.filename.substring(0, 30) || '(empty)'}</div>
+        <div className={styles.column}>{jobData.filename?.substring(0, 30) || '(empty)'}</div>
       </JobsExplorerTableRowContainer>
     </div>
   );
