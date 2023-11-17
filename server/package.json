@@ -8,6 +8,6 @@
     },
     "dependencies": {
         "fastify": "4.24.3",
-        "mongodb": "6.2.0"
+        "mongodb": "6.3.0"
     }
 }

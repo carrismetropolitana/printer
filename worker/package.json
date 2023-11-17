@@ -7,7 +7,7 @@
         "start": "node index.js"
     },
     "dependencies": {
-        "mongodb": "6.2.0",
-        "puppeteer": "21.5.0"
+        "mongodb": "6.3.0",
+        "puppeteer": "21.5.2"
     }
 }
