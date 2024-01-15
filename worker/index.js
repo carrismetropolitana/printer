@@ -22,7 +22,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
   let TASK_IS_RUNNING = false;
 
   // Setup browser instance on init
-  const BROSWER_INSTANCE = await puppeteer.launch({
+  const BROWSER_INSTANCE = await puppeteer.launch({
     headless: 'new',
     executablePath: 'google-chrome-stable',
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -47,7 +47,7 @@ const OUTPUT_DIRECTORY = '/output/jobsdata/pdfs';
     const startTime = process.hrtime();
 
     // Initiate a new page on the browser
-    const browserPage = await BROSWER_INSTANCE.newPage();
+    const browserPage = await BROWSER_INSTANCE.newPage();
 
     // Retrieve newly registered jobs from database
     const allNewJobs = await QUEUEDB.Job.find({ status: 'registered' }).toArray();
